@@ -1,0 +1,29 @@
+<div class="login-signup">
+  <div class="toggle" (click)="toggleLogin()"><i class="fa fa-times"
+                                                 [ngClass]="{'fa-user-plus': showLogin,'fa-sign-in': !showLogin}"></i>
+
+    <div *ngIf="showLogin" class="leftpoint-tip">Sign Up</div>
+    <div *ngIf="!showLogin" class="leftpoint-tip">Login</div>
+  </div>
+  <div class="form" [@toggleAlertPanel]="showLogin" *ngIf="showLogin">
+    <h2>Login to your account</h2>
+
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <button>Login</button>
+    </form>
+    <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+  </div>
+  <div class="form">
+    <h2>Create an account</h2>
+
+    <form>
+      <input type="text" placeholder="Username"/>
+      <input type="password" placeholder="Password"/>
+      <input type="email" placeholder="Email Address"/>
+      <input type="tel" placeholder="Phone Number"/>
+      <button>Register</button>
+    </form>
+  </div>
+</div>
