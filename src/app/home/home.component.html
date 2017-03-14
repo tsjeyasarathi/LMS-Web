@@ -1,0 +1,96 @@
+<div id="wrapper" [ngClass]="{'toggled': !sidePanelClosed, 'no-toggle': sidePanelClosed}">
+  <div class="overlay custom-scroll-1" *ngIf="!sidePanelClosed"></div>
+
+  <!-- Sidebar -->
+  <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+    <ul class="nav sidebar-nav">
+      <li>
+        <a class="navbar-brand  " href="#"><span class="fa fa-cubes"></span> </a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-fw fa-users"></i> Accounts</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-fw fa-file-o"></i> Reports</a>
+      </li>
+      <li>
+        <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
+      </li>
+    </ul>
+  </nav>
+  <!-- /#sidebar-wrapper -->
+
+  <nav class="navbar border-top" *ngIf="!showTableFullScreen">
+    <div class="container-fluid header-module">
+      <div class="navbar-header">
+        <button type="button" [ngClass]="{'is-closed': sidePanelClosed,'is-open': !sidePanelClosed}"
+                class="hamburger animated fadeInLeft" (click)="toggleSidePanel()" data-toggle="offcanvas">
+          <span class="hamb-top"></span>
+          <span class="hamb-middle"></span>
+          <span class="hamb-bottom"></span>
+        </button>
+        <a class="navbar-brand" href="#">
+          <span class="fa fa-cubes"></span>
+          <span>Learning Dashboard</span>
+        </a>
+      </div>
+
+      <div class="header-nav">
+        <ul class="nav navbar-nav pull-right">
+          <li class="dropdown" ngbDropdown #file="ngbDropdown">
+            <a href="javascript:void(0)" class="dropdown-toggle" id="file" ngbDropdownToggle role="button"
+               aria-expanded="false"><i class="fa fa-user"></i> Jeyasarathi Thenmozhi</a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="file">
+              <li><a href="#">Share...</a></li>
+              <li class="divider"></li>
+              <li><a href="#">New</a></li>
+              <li><a href="#">Open...<span class="pull-right">Ctrl+O</span></a></li>
+              <li><a href="#">Rename...</a></li>
+              <li><a href="#">Make a copy...</a></li>
+              <li><a href="#">Add to My Drive</a></li>
+              <li><a href="#">Move to bin</a></li>
+              <li><a href="#">Import</a></li>
+              <li class="divider"></li>
+              <li><a href="#">See revision history</a></li>
+              <li><a href="#">Spreadsheet settings...</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Download as...</a></li>
+              <li><a href="#">Publish to the web...</a></li>
+              <li><a href="#">Email collaborators...</a></li>
+              <li><a href="#">Email as attachment...</a></li>
+              <li class="divider"></li>
+              <li><a href="#">Document details...</a></li>
+              <li><a href="#">Print</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="ib sign-out pull-right" title="Sign out">
+        <i class="fa fa-2 fa-sign-out"></i>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid">
+    <div class="main">
+
+      <router-outlet></router-outlet>
+    </div>
+    <footer *ngIf="!showTableFullScreen">
+      <section class="copyright">
+        <div class="row">
+          <div class="large-11 large-centered columns">
+            <a href="/">Terms of use and Privacy</a>
+
+            <p>&copy;<script>document.write(new Date().getFullYear());</script>
+              2016 LatentView Analytics Pvt Ltd. All trademarks belong to their respective owners.
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
+  </div>
+</div>

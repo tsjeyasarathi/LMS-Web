@@ -9,7 +9,9 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "assets/images/overview.jpg",
+        "assets/images/tableau.png"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -19,6 +21,8 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
+        "assets/css/font-awesome.min.css",
+        "assets/css/yeti-bootswatch.min.css",
         "styles.css"
       ],
       "scripts": [],

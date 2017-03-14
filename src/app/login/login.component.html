@@ -1,4 +1,4 @@
-<div class="login-signup">
+<div class="login-signup row">
   <div class="toggle" (click)="toggleLogin()"><i class="fa fa-times"
                                                  [ngClass]="{'fa-user-plus': showLogin,'fa-sign-in': !showLogin}"></i>
 
@@ -14,6 +14,14 @@
       <button>Login</button>
     </form>
     <div class="cta"><a href="http://andytran.me">Forgot your password?</a></div>
+    <hr/>
+    <div class="auth-modal__content__or-heading">Log in with</div>
+    <div class="social-auth col-lg-offset-3 col-sm-3">
+      <button class="btn btn-danger">
+        <i class="fa fa-google"></i>
+        <span>Google</span>
+      </button>
+    </div>
   </div>
   <div class="form">
     <h2>Create an account</h2>

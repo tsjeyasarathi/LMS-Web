@@ -33,11 +33,7 @@ export class LoginComponent implements OnInit {
   }
 
   toggleLogin() {
-    if(this.showLogin) {
-      this.showLogin = false;
-    } else {
-      this.showLogin = true;
-    }
+    this.showLogin = !this.showLogin;
   }
 
   ngOnInit() {

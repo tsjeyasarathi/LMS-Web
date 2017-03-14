@@ -34,7 +34,7 @@ a:active, a:focus, a:hover {
   width: 100%;
   border-top: 5px solid #33b5e5;
   box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
-  margin: 135px auto 0 auto;
+  margin: 100px auto 0 auto;
 }
 
 .login-signup .toggle {
@@ -88,7 +88,7 @@ a:active, a:focus, a:hover {
   color: #333333
 }
 
-.login-signup button {
+.login-signup form button {
   cursor: pointer;
   background: #33b5e5;
   width: 100%;
@@ -161,4 +161,18 @@ a:active, a:focus, a:hover {
 .leftpoint-tip:before {
   left: -5px;
   border-right: 5px solid rgba(0, 0, 0, 0.6)
+}
+
+.auth-modal__content__or-heading {
+  margin-bottom: 1.5em;
+  color: #888;
+  font-size: 0.875em;
+  font-weight: 400;
+  line-height: 1.4;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.social-auth {
+  padding-bottom: 10px;
 }
