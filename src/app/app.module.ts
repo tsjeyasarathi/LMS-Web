@@ -10,8 +10,8 @@ import { routing }  from './app.routing';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProficiencyComponent } from './proficiency/proficiency.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { OverviewComponent } from './overview/overview.component';
+import { MaterialComponent } from './material/material.component';
 
 @NgModule({
   declarations: [
@@ -19,15 +19,15 @@ import { OverviewComponent } from './overview/overview.component';
     LoginComponent,
     HomeComponent,
     ProficiencyComponent,
-    OverviewComponent
+    OverviewComponent,
+    MaterialComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
-    routing,
-    NgbModule.forRoot()
+    routing
   ],
   providers: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

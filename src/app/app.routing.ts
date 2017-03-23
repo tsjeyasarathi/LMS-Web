@@ -5,6 +5,7 @@ import { LoginComponent }   from './login/login.component';
 import { HomeComponent }   from './home/home.component';
 import { OverviewComponent }   from './overview/overview.component';
 import { ProficiencyComponent }   from './proficiency/proficiency.component';
+import { MaterialComponent }   from './material/material.component';
 
 const appRoutes: Routes = <Routes>[
   {
@@ -13,7 +14,7 @@ const appRoutes: Routes = <Routes>[
       { path: '', component: HomeComponent },
       { path: 'overview', component: OverviewComponent },
       { path: 'proficiency/:name', component: ProficiencyComponent },
-
+      { path: 'material/:name', component: MaterialComponent },
     ],
     component: HomeComponent
   },

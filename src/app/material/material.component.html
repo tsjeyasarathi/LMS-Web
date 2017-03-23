@@ -1,0 +1,174 @@
+<div class="main-content col-lg-12">
+  <div class="col-lg-9 content title title-2">
+    <div class="bb10 pd-btm1">
+      <h4>Python</h4>
+      <div class="status"><span class="primary">Beginner</span> <span>since January 06th 2017</span></div>
+    </div>
+    <div class="col-lg-12 mg-top2">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-asterisk fs14"></i> <span class="mg-left1">Key Topics</span></h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-book fs14"></i> <span class="mg-left1">Good reads</span></h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-video-camera fs14"></i> <span class="mg-left1">Online courses</span></h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+      <div class="panel panel-info">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-comments fs14"></i> <span class="mg-left1">Discussion forums</span></h3>
+        </div>
+        <div class="panel-body">
+          Panel content
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3">
+    <div class="col-lg-12 tab-section">
+      <div class="col-lg-6 tab" [ngClass]="{'active': showTimeline, '': showTimeline}"><span
+        (click)="toggleTimeline(true)"><i class="fa fa-calendar"></i><span class="mg-left1">Events</span></span></div>
+      <div class="col-lg-6 tab" [ngClass]="{'active': !showTimeline, '': showTimeline}"><span
+        (click)="toggleTimeline(false)"><i class="fa fa-newspaper-o"></i><span class="mg-left1">News Feeds</span></span></div>
+    </div>
+    <div class="col-lg-12" *ngIf="showTimeline">
+      <div class="event">
+        <label>FRIDAY 10th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> reached Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B3</span>
+          <label><span class="fwb">You</span>  completed level 3</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B2</span>
+          <label><span class="fwb">You</span>  completed level 2</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> completed  level 1</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>THURSDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> reached Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B3</span>
+          <label><span class="fwb">You</span>  completed level 3</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B2</span>
+          <label><span class="fwb">You</span>  completed level 2</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> completed  level 1</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12" *ngIf="!showTimeline">
+      <div class="event">
+        <label>FRIDAY 10th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>THURSDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>WEDNESDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-9">
+
+  </div>
+</div>

@@ -1,1 +1,83 @@
 /* You can add global styles to this file, and also import other style files */
+.title {
+  border-bottom: solid 1px #ddd;
+  padding-top: 15px;
+  padding-bottom:15px;
+  border-left: solid 3px #196F3D;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  margin-top: 2px;
+  float: left;
+}
+
+.title-2 {
+  border-bottom: solid 1px #ddd;
+  padding-top: 15px;
+  padding-bottom:15px;
+  border-left: solid 3px #F39C12;
+  border-right: solid 1px #ccc;
+  border-bottom: solid 1px #ccc;
+  border-top: solid 1px #ccc;
+  margin-top: 2px;
+
+}
+
+
+.title h4 {
+  font-weight: bold;
+}
+.primary {
+  color: #3498db;
+}
+.success {
+  color: #196F3D;
+}
+
+.bg {
+  background: #f6f6f6;
+}
+.main-content {
+  padding-top: 10px
+}
+.fwb{
+  font-weight: bold;
+}
+.bb10 {
+  border-bottom: solid 1px #ccc;
+}
+.mg-top2 {
+  margin-top: 2%;
+}
+.pd-btm1 {
+  padding-bottom: 1%;
+}
+.mg-left1 {
+  margin-left: 10px;
+}
+.fs10 {
+  font-size: 10px !important;
+}
+.fs11 {
+  font-size: 11px !important;
+}
+.fs12 {
+  font-size: 12px !important;
+}
+.fs13 {
+  font-size: 13px !important;
+}
+.fs14 {
+  font-size: 14px !important;
+}
+
+.top-section {
+  background: #fefefe;
+  margin-bottom: 5px;
+}
+.clear {
+  clear: both;
+}
+.custom-icon {
+  font-size: 15px;
+}

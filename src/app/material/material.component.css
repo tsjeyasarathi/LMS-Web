@@ -12,7 +12,7 @@
   font-size: 13px;
 }
 .tab.active {
-  background: #3498db;
+  background: #196F3D;
   color: #fff;
 }
 
@@ -37,6 +37,9 @@
   color: #bbb;
 }
 
+.event-content .badge {
+  background: #196F3D;
+}
 .wizard {
   margin: 20px auto;
   background: #fff;

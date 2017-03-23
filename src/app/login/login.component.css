@@ -99,7 +99,7 @@ a:active, a:focus, a:hover {
   transition: 0.3s ease
 }
 
-.login-signup button:hover {
+.login-signup form button:hover {
   background: #178ab4
 }
 

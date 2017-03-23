@@ -1,3 +1,317 @@
-<p>
-  proficiency works!
-</p>
+<div class="main-content">
+  <div class="col-lg-12 title top-section">
+    <div class="pd-btm1">
+      <h4 class="col-lg-10">SQL</h4>
+      <div class="col-lg-2" title="Show/Hide Timeline" (click)="toggleTimelineSection()">
+        <button class="btn btn-primary custom-icon fs11"><i class="fa fa-clock-o"></i> Show Timeline</button>
+      </div>
+      <div class="col-lg-12 status"><span class="primary">Beginner</span> <span>since January 06th 2017</span></div>
+    </div>
+  </div>
+  <div class="clear"></div>
+  <div class="content title" *ngIf="tech == 'SQL' && level == 1" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Introduction to SQL</h4>
+                <div class="pull-right"><label>Duration: <i>1 hour</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Refer <a href="#">SQL Manual-FundamentalsTraining.pdf</a> pages 4 - 10 for learning the listed topics to advance to next section</p>
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>RDBMS Concepts and types</p>
+                      <p>Structure of a Table</p>
+                      <p>  Entity Relationship Diagram (ERD)</p>
+                      <p>  Database Normalization</p>
+                      <p>  Denormalization</p>
+                      <p>  Primary Key And Foreign Key</p>
+                      <p> Index</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Syntax of a Query</h4>
+                <div class="pull-right"><label>Duration: <i>4 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
+                        Sections</a> for the listed topics </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Select Statement</p>
+                      <p>Where</p>
+                      <p>Like</p>
+                      <p>Creating Tables</p>
+                      <p>Inserting Into A Table</p>
+                      <p>Update Statement</p>
+                      <p>Delete/Truncate</p>
+                      <p>Unions, Intersections, Exceptions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Practice Exercises</h4>
+                <div class="pull-right"><label>Duration: <i>3 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Complete stage 0 to 5 on <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Know more about RDBMS</h4>
+                <div class="pull-right"><label>Duration: <i>42 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Complete <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works.This course is part of a 5-week specialization.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-paneactive" role="tabpanel" *ngIf="step == 5">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="col-lg-3" *ngIf="showTimelineSection">
+    <div class="col-lg-12 tab-section">
+      <div class="col-lg-6 tab" [ngClass]="{'active': showTimeline, '': showTimeline}"><span
+        (click)="toggleTimeline(true)"><i class="fa fa-clock-o"></i><span class="mg-left1">Timeline</span></span></div>
+      <div class="col-lg-6 tab" [ngClass]="{'active': !showTimeline, '': showTimeline}"><span
+        (click)="toggleTimeline(false)"><i class="fa fa-commenting"></i><span class="mg-left1">Comments</span></span></div>
+    </div>
+    <div class="col-lg-12" *ngIf="showTimeline">
+      <div class="event">
+        <label>FRIDAY 10th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> reached Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B3</span>
+          <label><span class="fwb">You</span>  completed level 3</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B2</span>
+          <label><span class="fwb">You</span>  completed level 2</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> completed  level 1</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>THURSDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> reached Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B3</span>
+          <label><span class="fwb">You</span>  completed level 3</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B2</span>
+          <label><span class="fwb">You</span>  completed level 2</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> completed  level 1</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12" *ngIf="!showTimeline">
+      <div class="event">
+        <label>FRIDAY 10th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>THURSDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+      <div class="event">
+        <label>WEDNESDAY 9th, JANUARY</label>
+
+        <div class="event-content">
+          <span class="badge">I</span>
+          <label><span class="fwb">You</span> are an Intermediate</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B1</span>
+          <label><span class="fwb">You</span> must read by today</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+        <div class="event-content">
+          <span class="badge">B</span>
+          <label><span class="fwb">You</span> started as a Beginner</label>
+          <span class="time pull-right">17:46</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
