@@ -44,4 +44,8 @@ export class ProficiencyComponent implements OnInit {
       this.step -= 1;
     }
   }
+
+  complete() {
+    this.level += 1;
+  }
 }

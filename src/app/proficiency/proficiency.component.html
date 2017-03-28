@@ -187,6 +187,1471 @@
         </form>
       </div>
   </div>
+  <div class="content title" *ngIf="tech == 'SQL' && level == 2" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(6)" [ngClass]="{'active': step == 6, 'disabled': step != 6}">
+              <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(7)" [ngClass]="{'active': step == 7, 'disabled': step != 7}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Basic Operations & Aggregating Data</h4>
+                <div class="pull-right"><label>Duration: <i>3 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Refer <a href="#">SQL Manual-FundamentalsTraining.pdf</a> Pages: 18-41  for learning the listed topics</p>
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Data types</p>
+                      <p>Number Functions</p>
+                      <p>String Functions</p>
+                      <p>Date Functions</p>
+                      <p>Using Logical Operators </p>
+                      <p>Case When Statements</p>
+                      <p>SQL Aggregate Functions</p>
+					  <p>The Having Clause</p>
+					  <p>The Order By Clause</p>
+					  <p>Statistical Functions<p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Joins</h4>
+                <div class="pull-right"><label>Duration: <i>4 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
+                        Sections</a> for the listed topics </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Inner Join</p>
+                      <p>Left Join</p>
+                      <p>Right Join</p>
+                      <p>Full Join</p>
+                      <p>Cross Join</p>
+                      <p>Aliases</p>
+                      <p>Self Join</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Subqueries</h4>
+                <div class="pull-right"><label>Duration: <i>3 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="#">SQL Manual-FundamentalsTraining.pdf</a> Pages: 48-70  for learning the listed topics</p>
+                    </div>
+                  </div>
+                </div>
+
+			  <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Correlated Sub Queries</p>
+                      <p>Exists Operator</p>
+                      <p>Nested Sub Queries</p>
+                      <p>Analytical Functions</p>
+                      <p>Set Operators</p>
+                      <p>Hierarchical Queries</p>
+                      <p>Regular Expressions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Practice Exercises</h4>
+                <div class="pull-right"><label>Duration: <i>4 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Complete Stage 6-10 <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">SQL Quiz</h4>
+                <div class="pull-right"><label>Duration: <i>1 hour</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Complete <a href="https://www.w3schools.com/sql/sql_quiz.asp"> W3Schools</a>SQL Quiz.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 6">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Complete course offered by Stanford</h4>
+                <div class="pull-right"><label>Duration: <i>18 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Complete <a href="https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/about"> Stanford </a>Course DB5 SQL.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-paneactive" role="tabpanel" *ngIf="step == 7">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="content title" *ngIf="tech == 'SQL' && level == 3" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(6)" [ngClass]="{'active': step == 6, 'disabled': step != 6}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Advanced</h4>
+                <!--<div class="pull-right"><label>Duration: <i>3 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                  <!--  <p>Refer <a href="#">SQL Manual-FundamentalsTraining.pdf</a> Pages: 18-41  for learning the listed topics</p> -->
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Stored procedures</p>
+                      <p>User Defined Functions</p>
+                      <p>Triggers</p>
+                      <p>Macros in SQL</p>
+                      <p>Pivoting </p>
+                      <p>Utilities</p>
+                      <p>SQL Hosting</p>
+					  <p>Transactions</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Learn to connect Python to a database</h4>
+                <div class="pull-right"><label>Duration: <i>4 weeks</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.udacity.com/course/intro-to-relational-databases--ud197">Udacity</a> for Intro to Relational Databases </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                     <!-- <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>-->
+                    </div>
+                    <div class="panel-body">
+                     <!-- <p>Inner Join</p>
+                      <p>Left Join</p>
+                      <p>Right Join</p>
+                      <p>Full Join</p>
+                      <p>Cross Join</p>
+                      <p>Aliases</p>
+                      <p>Self Join</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Learn to use analytical elements of SQL for answering business intelligence questions</h4>
+                <div class="pull-right"><label>Duration: <i>42 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.coursera.org/learn/dwrelational">Coursera</a>for learning Relational Database Support for Data Warehouses</p>
+                    </div>
+                  </div>
+                </div>
+
+			  <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <!--  <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>-->
+                    </div>
+                    <div class="panel-body">
+                     <!-- <p>Correlated Sub Queries</p>
+                      <p>Exists Operator</p>
+                      <p>Nested Sub Queries</p>
+                      <p>Analytical Functions</p>
+                      <p>Set Operators</p>
+                      <p>Hierarchical Queries</p>
+                      <p>Regular Expressions</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Ebook with video illustrations(Optional)</h4>
+                <!--<div class="pull-right"><label>Duration: <i>4 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p> <a href="https://learncodethehardway.org/sql/">Learn SQL</a>the Hard Way.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">SQL puzzles and answers(Optional)</h4>
+                <!--<div class="pull-right"><label>Duration: <i>1 hour</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer<a href="https://www.amazon.com/Puzzles-Answers-Kaufmann-Management-Systems/dp/0123735963"> Joe Celko's </a>SQL Puzzles and Answers.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 6">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="content title" *ngIf="tech == 'Python' && level == 1" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(6)" [ngClass]="{'active': step == 6, 'disabled': step != 6}">
+              <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(7)" [ngClass]="{'active': step == 7, 'disabled': step != 7}">
+              <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab" title="Step 7">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(8)" [ngClass]="{'active': step == 8, 'disabled': step != 8}">
+              <a href="#step8" data-toggle="tab" aria-controls="step8" role="tab" title="Step 8">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(9)" [ngClass]="{'active': step == 9, 'disabled': step != 9}">
+              <a href="#step9" data-toggle="tab" aria-controls="step9" role="tab" title="Step 9">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(10)" [ngClass]="{'active': step == 10, 'disabled': step != 10}">
+              <a href="#step10" data-toggle="tab" aria-controls="step10" role="tab" title="Step 10">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(11)" [ngClass]="{'active': step == 11, 'disabled': step != 11}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">How to Think like a computer scientist</h4>
+                <!--<div class="pull-right"><label>Duration: <i>1 hour</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Refer <a href="http://openbookproject.net/thinkcs/python/english3e/variables_expressions_statements.html">Variables Expressions and Statements</a> for learning about the same to advance to next section</p>
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <!--  <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>-->
+                    </div>
+                    <div class="panel-body">
+                     <!-- <p>RDBMS Concepts and types</p>
+                      <p>Structure of a Table</p>
+                      <p>  Entity Relationship Diagram (ERD)</p>
+                      <p>  Database Normalization</p>
+                      <p>  Denormalization</p>
+                      <p>  Primary Key And Foreign Key</p>
+                      <p> Index</p>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Stackoverflow question</h4>
+                <div class="pull-right"><label>Duration: <i>10 mins</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://stackoverflow.com/questions/16865213/local-and-global-variables-in-python-functions">Global Variables and Local Variables</a> for advancing to the next section </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <!--  <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3> -->
+                    </div>
+                    <div class="panel-body">
+                    <!--  <p>Select Statement</p>
+                      <p>Where</p>
+                      <p>Like</p>
+                      <p>Creating Tables</p>
+                      <p>Inserting Into A Table</p>
+                      <p>Update Statement</p>
+                      <p>Delete/Truncate</p>
+                      <p>Unions, Intersections, Exceptions</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Hands-on Python Tutorial</h4>
+                <!--<div class="pull-right"><label>Duration: <i>3 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://anh.cs.luc.edu/python/hands-on/3.1/handsonHtml/functions.html">Functions</a>  for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">How to Think like a computer scientist</h4>
+                <div class="pull-right"><label>Duration: <i>42 hours</i></label></div>
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://openbookproject.net/thinkcs/python/english3e/variables_expressions_statements.html">Conditionals</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Hands-on Python Tutorial</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://anh.cs.luc.edu/python/hands-on/3.1/handsonHtml/loops.html">Loops</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 6">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">How to Think like a computer scientist-Tuples</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://openbookproject.net/thinkcs/python/english3e/tuples.html">Tuples</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 7">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">How to Think like a computer scientist-Lists</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://openbookproject.net/thinkcs/python/english3e/lists.html">Lists</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 8">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">set-python</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.dotnetperls.com/set-python">Sets</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 9">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">dictionary-python</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.dotnetperls.com/dictionary-python">Dictionaries</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 10">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python List comprehensions: Explained visually</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/">List Comprehension</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-paneactive" role="tabpanel" *ngIf="step == 11">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="content title" *ngIf="tech == 'Python' && level == 2" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(6)" [ngClass]="{'active': step == 6, 'disabled': step != 6}">
+              <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(7)" [ngClass]="{'active': step == 7, 'disabled': step != 7}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python for beginners</h4>
+                <!--<div class="pull-right"><label>Duration: <i>3 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Refer <a href="http://www.pythonforbeginners.com/files/reading-and-writing-files-in-python">File Handling</a> for advancing to the next section</p>
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <!--<p>Data types</p>
+                      <p>Number Functions</p>
+                      <p>String Functions</p>
+                      <p>Date Functions</p>
+                      <p>Using Logical Operators </p>
+                      <p>Case When Statements</p>
+                      <p>SQL Aggregate Functions</p>
+					  <p>The Having Clause</p>
+					  <p>The Order By Clause</p>
+					  <p>Statistical Functions<p>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python course</h4>
+                <!--<div class="pull-right"><label>Duration: <i>4 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://developers.google.com/edu/python/regular-expressions">Regular expressions</a> for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                     <!-- <p>Inner Join</p>
+                      <p>Left Join</p>
+                      <p>Right Join</p>
+                      <p>Full Join</p>
+                      <p>Cross Join</p>
+                      <p>Aliases</p>
+                      <p>Self Join</p>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">PyMotw</h4>
+                <!--<div class="pull-right"><label>Duration: <i>3 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://doughellmann.com/blog/2009/06/19/python-exception-handling-techniques/">Exception Handling</a> for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+
+			  <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <!--<p>Correlated Sub Queries</p>
+                      <p>Exists Operator</p>
+                      <p>Nested Sub Queries</p>
+                      <p>Analytical Functions</p>
+                      <p>Set Operators</p>
+                      <p>Hierarchical Queries</p>
+                      <p>Regular Expressions</p>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">SQL Introduction for Python Programmers</h4>
+                <!--<div class="pull-right"><label>Duration: <i>4 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://www.openbookproject.net/py4fun/sql/sql.html">Database Programming</a> for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python Functions - Map, Filter, and reduce</h4>
+                <!--<div class="pull-right"><label>Duration: <i>1 hour</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://www.bogotobogo.com/python/python_fncs_map_filter_reduce.php">Map, Filter and Reduce</a>for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 6">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python Wiki</h4>
+                <!--<div class="pull-right"><label>Duration: <i>18 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://wiki.python.org/moin/Generators"> Generators </a>for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-paneactive" role="tabpanel" *ngIf="step == 7">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+  </div>
+  <div class="content title" *ngIf="tech == 'Python' && level == 3" [ngClass]="{'col-lg-9': showTimelineSection, 'col-lg-12': !showTimelineSection}">
+      <div class="wizard">
+        <div class="wizard-inner">
+          <div class="connecting-line"></div>
+          <ul class="nav nav-tabs" role="tablist">
+
+            <li role="presentation" (click)="setStep(1)" [ngClass]="{'active': step == 1}">
+              <a href="#step1" data-toggle="tab" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab">
+                                  <i class="fa fa-play"></i>
+                            </span>
+              </a>
+            </li>
+
+            <li role="presentation" (click)="setStep(2)" [ngClass]="{'active': step == 2, 'disabled': step != 2}">
+              <a href="#step2" data-toggle="tab" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="fa fa-code"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(3)" [ngClass]="{'active': step == 3, 'disabled': step != 3}">
+              <a href="#step3" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="fa fa-hand-pointer-o"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(4)" [ngClass]="{'active': step == 4, 'disabled': step != 4}">
+              <a href="#step4" data-toggle="tab" aria-controls="step4" role="tab" title="Step 4">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(5)" [ngClass]="{'active': step == 5, 'disabled': step != 5}">
+              <a href="#step5" data-toggle="tab" aria-controls="step5" role="tab" title="Step 5">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(6)" [ngClass]="{'active': step == 6, 'disabled': step != 6}">
+              <a href="#step6" data-toggle="tab" aria-controls="step6" role="tab" title="Step 6">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(7)" [ngClass]="{'active': step == 7, 'disabled': step != 7}">
+              <a href="#step7" data-toggle="tab" aria-controls="step7" role="tab" title="Step 7">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(8)" [ngClass]="{'active': step == 8, 'disabled': step != 8}">
+              <a href="#step8" data-toggle="tab" aria-controls="step8" role="tab" title="Step 8">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(9)" [ngClass]="{'active': step == 9, 'disabled': step != 9}">
+              <a href="#step9" data-toggle="tab" aria-controls="step9" role="tab" title="Step 9">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(10)" [ngClass]="{'active': step == 10, 'disabled': step != 10}">
+              <a href="#step10" data-toggle="tab" aria-controls="step10" role="tab" title="Step 10">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+			<li role="presentation" (click)="setStep(11)" [ngClass]="{'active': step == 11, 'disabled': step != 11}">
+              <a href="#step11" data-toggle="tab" aria-controls="step11" role="tab" title="Step 11">
+                            <span class="round-tab">
+                                <i class="fa fa-info"></i>
+                            </span>
+              </a>
+            </li>
+            <li role="presentation" (click)="setStep(12)" [ngClass]="{'active': step == 12, 'disabled': step != 12}">
+              <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="fa fa-check"></i>
+                            </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <form role="form">
+          <div class="tab-content">
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Everything I know about Python</h4>
+                <!--<div class="pull-right"><label>Duration: <i>1 hour</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                <div class="panel panel-success">
+                  <div class="panel-heading">
+                    <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                  </div>
+                  <div class="panel-body">
+                    <p>Refer <a href="https://jeffknupp.com/blog/2014/06/18/improve-your-python-python-classes-and-object-oriented-programming/">Object oriented Programming</a> for learning about the same to advance to next section</p>
+                  </div>
+                </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <!--  <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3>-->
+                    </div>
+                    <div class="panel-body">
+                     <!-- <p>RDBMS Concepts and types</p>
+                      <p>Structure of a Table</p>
+                      <p>  Entity Relationship Diagram (ERD)</p>
+                      <p>  Database Normalization</p>
+                      <p>  Denormalization</p>
+                      <p>  Primary Key And Foreign Key</p>
+                      <p> Index</p>-->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">How to Think like a computer scientist</h4>
+                <!--<div class="pull-right"><label>Duration: <i>10 mins</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://openbookproject.net/thinkcs/python/english3e/list_algorithms.html">Searching and Sorting</a> for advancing to the next section </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="panel panel-primary">
+                    <div class="panel-heading">
+                    <!--  <h3 class="panel-title"><span class="mg-left1">Key Topics</span></h3> -->
+                    </div>
+                    <div class="panel-body">
+                    <!--  <p>Select Statement</p>
+                      <p>Where</p>
+                      <p>Like</p>
+                      <p>Creating Tables</p>
+                      <p>Inserting Into A Table</p>
+                      <p>Update Statement</p>
+                      <p>Delete/Truncate</p>
+                      <p>Unions, Intersections, Exceptions</p> -->
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python Course</h4>
+                <!--<div class="pull-right"><label>Duration: <i>3 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://www.python-course.eu/numerical_programming.php">Numpy</a>  for advancing to the next section</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Scikit learn tutorial</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://scikit-learn.org/stable/tutorial/basic/tutorial.html">Scipy</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+            <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Pandas Cookbook</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://pandas.pydata.org/pandas-docs/stable/cookbook.html">Pandas</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 6">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Practical Machine Learning Tutorial with Python Introduction</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://pythonprogramming.net/machine-learning-tutorial-python-introduction/">Machine Learning algorithms</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 7">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Tutorial: Machine Learning with Text in scikit-learn</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://github.com/justmarkham/pycon-2016-tutorial/blob/master/tutorial_with_output.ipynb">Machine Learning algorithms for text</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 8">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Bokeh: Ineractive data visualizations with Python</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://chdoig.github.io/pyladiesatx-bokeh-tutorial/#/">Visualization</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 9">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Python Web Scraping Tutorial using BeautifulSoup</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://www.dataquest.io/blog/web-scraping-tutorial-python/">Beautiful Soup</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 10">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Selenium with Python</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="http://selenium-python.readthedocs.io/">Selenium</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-pane active" role="tabpanel" *ngIf="step == 11">
+              <div class="bb10 col-lg-12">
+                <h4 class="pull-left inline">Scrapy Tutorial</h4>
+                <!--<div class="pull-right"><label>Duration: <i>42 hours</i></label></div>-->
+              </div>
+              <div class="col-lg-12 content-description mg-top2">
+                <div class="col-lg-6">
+                  <div class="panel panel-success">
+                    <div class="panel-heading">
+                      <h3 class="panel-title"><span class="mg-left1">TODO</span></h3>
+                    </div>
+                    <div class="panel-body">
+                      <p>Refer <a href="https://doc.scrapy.org/en/latest/intro/tutorial.html">Scrapy</a>  for advancing to the next section.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <ul class="list-inline pull-right">
+                <li><button type="button" class="btn btn-default prev-step" (click)="previousStep()">Previous</button></li>
+                <li><button type="button" class="btn btn-primary next-step" (click)="nextStep()">Next</button></li>
+              </ul>
+            </div>
+			<div class="tab-paneactive" role="tabpanel" *ngIf="step == 12">
+              <h4>Complete</h4>
+              <p>You have successfully completed all steps.</p>
+            </div>
+            <div class="clearfix"></div>
+          </div>
+        </form>
+      </div>
+	</div>
   <div class="col-lg-3" *ngIf="showTimelineSection">
     <div class="col-lg-12 tab-section">
       <div class="col-lg-6 tab" [ngClass]="{'active': showTimeline, '': showTimeline}"><span
