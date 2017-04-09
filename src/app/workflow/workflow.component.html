@@ -1,0 +1,329 @@
+<div class="container-fluid" #containerElem>
+    <!--<div class="col-lg-12 &#45;&#45;breadcrumb-container top-section">-->
+      <!--<div class="&#45;&#45;wrap">-->
+        <!--<ul class="&#45;&#45;breadcrumb-list">-->
+
+          <!--<li class="&#45;&#45;breadcrumb-item fs16">-->
+            <!--<a href="/api/"><span>SQL</span></a>-->
+          <!--</li>-->
+        <!--</ul>-->
+      <!--</div>-->
+    <!--</div>-->
+  <div class="row title-section">
+    <div class="col-lg-12">
+        <h4 class="page-title">SQL</h4>
+        <!--<a href="javascript:void(0)" (click)="savePosition()">SavePosition</a>-->
+        <div class="current-state fs12">
+          You are a <span class="level">Beginner</span> since <span class="time">January 21, 2017</span>
+        </div>
+    </div>
+    <hr/>
+  </div>
+  <div class="tab-1">
+    <div class="tree-nav">
+
+      <ul class="nav navbar-nav nav-tree-tab fs11">
+        <li (click)="section = 'courseFlow'" [ngClass]="{'active': section == 'courseFlow'}">
+            <span class="icon mg-right1">
+              <i class="fa fa-sitemap"></i>
+            </span>
+            <span>Course Flow</span></li>
+
+        <li (click)="section = 'resources'" [ngClass]="{'active': section == 'resources'}"><span class="icon mg-right1">
+              <i class="fa fa-book"></i>
+            </span>
+          <span>Resources</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-12 section-project" [hidden]="section != 'courseFlow'">
+      <div class="pull-left section-canvas jtk-demo-canvas dynamic-demo jtk-surface jtk-surface-nopan custom-scroll custom-scroll-x"
+        dnd-droppable (onDropSuccess)="addToGraph($event)" [dropZones]="['dropZone']">
+        <!-- button group - workflow and results -->
+        <div *ngFor="let node of flowControlNodes;let last = last;let i = index" class="node" [id]="node.id"
+             (contextmenu)="onContextMenu($event, node)" [node_position]="node" [style.left]="node.metadata.xloc+'px'"
+             [style.top]="node.metadata.yloc+'px'" (dblclick)="configureNode(node)" dnd-draggable [dragData]="node">
+            <div class="workflow-node">
+              <span class="duration" *ngIf="node.duration == null || node.duration == undefined"> <span style="visibility: hidden">1</span></span>
+              <span class="duration"
+                    *ngIf="node.duration != null && node.duration != undefined"> {{node.duration}}</span>
+              <span (click)="showStep(node.metadata, i)" class="icon" [ngClass]="[node.iconClass]"  [style.background]="node.metadata.color"></span><span class="topic"> {{node.name}}</span></div>
+            <app-is-last [isLast]="last" (onLastDone)="nodeMembersDone()"></app-is-last>
+        </div>
+      </div>
+
+      <div class="pull-left bg tech-content custom-scroll">
+        <div class="content" *ngIf="tech == 'SQL' && level == 1" >
+          <div class="wizard">
+            <form role="form">
+              <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">
+                      <!--<section title=".squaredThree" class="squaredThreeSection">-->
+                      <!--&lt;!&ndash; .squaredThree &ndash;&gt;-->
+                      <!--<div class="squaredThree" title="Mark as complete">-->
+                        <!--<input type="checkbox" value="None" id="squaredThree" name="check" checked />-->
+                        <!--<label for="squaredThree"></label>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
+                    <!--</section>-->
+                      Introduction to SQL</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+
+                        <div class="panel-body fs12">
+                          <p>Refer <a href="#">SQL Manual-FundamentalsTraining.pdf</a> pages 4 - 10 for learning the listed topics to advance to next section</p>
+                        </div>
+                      <div class="panel panel-primary fs11">
+                        <div class="panel-heading">
+                          <h3 class="panel-title"><i class="fa fa-bookmark"></i><span class="mg-left1">Key Topics</span></h3>
+                        </div>
+                        <div class="panel-body">
+                          <p>RDBMS Concepts and types</p>
+                          <p>Structure of a Table</p>
+                          <p>  Entity Relationship Diagram (ERD)</p>
+                          <p>  Database Normalization</p>
+                          <p>  Denormalization</p>
+                          <p>  Primary Key And Foreign Key</p>
+                          <p> Index</p>
+                        </div>
+                      </div>
+                      <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                  </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">Understand syntaxing a query</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+                    <div class="panel-body fs12">
+                      <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
+                        Sections</a> for the listed topics </p>
+                    </div>
+                      <div class="panel panel-primary fs12">
+                        <div class="panel-heading">
+                          <h3 class="panel-title"><i class="fa fa-bookmark"></i><span class="mg-left1">Key Topics</span></h3>
+                        </div>
+                        <div class="panel-body">
+                          <p>Select Statement</p>
+                          <p>Where</p>
+                          <p>Like</p>
+                          <p>Creating Tables</p>
+                          <p>Inserting Into A Table</p>
+                          <p>Update Statement</p>
+                          <p>Delete/Truncate</p>
+                          <p>Unions, Intersections, Exceptions</p>
+                        </div>
+                      </div>
+                    <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                  </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">Practice Exercises</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+                    <div class="panel-body fs12">
+                      <p>Complete stage 0 to 5 on <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step</p>
+                      <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">Know more about RDBMS</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+                    <div class="panel-body fs12">
+                      <p>Complete <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works. This course is part of a 5-week specialization.</p>
+                      <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">Practice your RDBMS concepts</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+                    <div class="panel-body fs12">
+                      <p>Practice <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works.</p>
+                      <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
+                  <div class="bb10 col-lg-12">
+                    <h4 class="pull-left inline">Congratulations !</h4>
+                  </div>
+                  <div class="col-lg-12 content-description mg-top2">
+                    <div class="panel-body fs12">
+                      <p>You have successfully completed all the beginner level courses.</p>
+                      <button class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-12 section-project" [hidden]="section != 'resources'">
+          <div class="panel with-nav-tabs resources">
+            <div class="panel-body">
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab2primary">
+                  <div class="row">
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center" class="social-links">USEFUL COURSES <span style="float:right;">
+                                                        <i class="fa fa-book fa-lg"></i></span> </div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><a class="course-link" target="_blank" target="_blank" href="https://www.udacity.com/course/intro-to-relational-databases--ud197">Introduction to RDBMS</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" target="_blank" href="https://www.coursera.org/learn/database-management">Understanding how RDBMS works</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.codecademy.com/learn/learn-sql">Interactive program for basic RDBMS</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/about">Explore Courses</a> </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center">GOOD READS <span style="float:right;"><i class="fa fa-bookmark fa-lg"></i></span></div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://learncodethehardway.org/sql/">Learn Code the Hard Way</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.amazon.com/SQL-Minutes-Sams-Teach-Yourself-ebook/dp/B009XDGF2C">SQL in 10 Minutes, Sams Teach Yourself</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.amazon.com/Puzzles-Answers-Kaufmann-Management-Systems/dp/0123735963">Joe Celko's SQL Puzzles and Answers </a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://code.tutsplus.com/tutorials/10-essential-sql-tips-for-developers--net-5274">Essential SQL Tips</a> </td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.coursera.org/learn/dwrelational
+">RDBMS Support for Data warehouse</a> </td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center">DISCUSSION FORUMS<span style="float:right;"><i class="fa fa-users fa-lg"></i></span></div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://community.teradata.com/">Teradata Community</a></td>
+
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="http://www.sqlteam.com/">SQL Team</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="http://www.sqlservercentral.com/">SQL Server Central</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="http://stackoverflow.com/">Stack Overflow</a></td>
+                        </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!--
+                        <div class="col-md-3">
+                            <button class="btn btn-primary btn-lg">Useful courses</button>
+                            <br>
+                            <div class="panel panel-info ">
+                                <div class="panel-body">
+                                    <ol>
+                                        <li> Understanding how RDBMS works</li>
+                                        <li> Interactive program for basic RDBMS</li>
+                                    </ol>
+                                </div>
+                            </div>
+</div>
+--></div>
+                  <div class="row">
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center">PRACTISE AVENUES <span style="float:right;"><i class="fa fa-tasks fa-lg"></i></span> </div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.w3schools.com/sql/">Basic tutorial with explanation</a></td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="http://sqlzoo.net/">Forming basic queries</a> </td>
+                        </tr>
+                        <tr>
+                          <td><a class="course-link" target="_blank" href="https://www.essentialsql.com/programs/">Programs,Classes</a> </td>
+                        </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center">EVENTS<span style="float:right;"><i class="fa fa-calendar fa-lg"></i></span></div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody> </tbody>
+                      </table>
+                    </div>
+                    <div class="col-md-4">
+                      <table class="table table-hover">
+                        <thead class="thead-inverse">
+                        <tr>
+                          <th>
+                            <div style="text-align:center">NEWS FEEDS<span style="float:right;"><i class="fa fa-rss  fa-lg"></i></span></div>
+                          </th>
+                        </tr>
+                        </thead>
+                        <tbody> </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+  </div>
+</div>

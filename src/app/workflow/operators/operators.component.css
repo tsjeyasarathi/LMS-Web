@@ -1,0 +1,14 @@
+.operator-expand {
+  opacity:1;
+  height: auto;
+  //padding: 8px;
+  transition: all .6s ease .1s;
+}
+
+.operator-collapse {
+  opacity:0;
+  clear: both;
+  height: 0;
+  //padding: 0 8px;
+  overflow: hidden;
+}

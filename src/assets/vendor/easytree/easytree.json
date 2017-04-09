@@ -1,0 +1,308 @@
+{
+  "name": "initial",
+  "id": 1,
+  "parent_id": null,
+  "weight": 0.1,
+  "type": "root",
+  "category": [
+    {
+      "name": "category1",
+      "value": 7800,
+      "percent": 78
+    },
+    {
+      "name": "category2",
+      "value": 2200,
+      "percent": 22
+    }
+  ],
+  "children": [
+    {
+      "name": "car_age <= 5.00",
+      "id": 2,
+      "parent_id": 1,
+      "weight": 0.05,
+      "type" : "stem",
+      "category": [
+        {
+          "name": "category1",
+          "value": 3200,
+          "percent": 71.11
+        },
+        {
+          "name": "category2",
+          "value": 1300,
+          "percent": 28.89
+        }
+      ],
+      "children": [
+        {
+          "name": "online_sale = Y",
+          "id": 3,
+          "parent_id": 2,
+          "weight": 0.025,
+          "type" : "stem",
+          "category": [
+            {
+              "name": "category1",
+              "value": 2350,
+              "percent": 94.00
+            },
+            {
+              "name": "category2",
+              "value": 150,
+              "percent": 6.00
+            }
+          ],
+          "children": [
+            {
+              "name": "used_km <= 10000",
+              "id": 4,
+              "parent_id": 3,
+              "weight": 0.0125,
+              "type" :"leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 2350,
+                  "percent": 100.00
+                },
+                {
+                  "name": "category2",
+                  "value": 100,
+                  "percent": 0.00
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "used_km > 10000",
+              "id": 5,
+              "parent_id": 3,
+              "weight": 0.0125,
+              "type" :"leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 0,
+                  "percent": 0.00
+                },
+                {
+                  "name": "category2",
+                  "value": 150,
+                  "percent": 100.00
+                }
+              ],
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "Online_Sale = N",
+          "id": 6,
+          "parent_id": 2,
+          "weight": 0.025,
+          "type": "stem",
+          "category": [
+            {
+              "name": "category1",
+              "value": 1700,
+              "percent": 85.00
+            },
+            {
+              "name": "category2",
+              "value": 300,
+              "percent": 15.00
+            }
+          ],
+          "children": [
+            {
+              "name": "car_age <= 2.0",
+              "id": 7,
+              "parent_id": 6,
+              "weight": 0.0125,
+              "type" :"leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 1700,
+                  "percent": 97.14
+                },
+                {
+                  "name": "category2",
+                  "value": 50,
+                  "percent": 2.86
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "car_age > 2.0",
+              "id": 8,
+              "parent_id": 6,
+              "weight": 0.0125,
+              "type" :"leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 0,
+                  "percent": 0.00
+                },
+                {
+                  "name": "category2",
+                  "value": 250,
+                  "percent": 100.00
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Car_Age > 5.00",
+      "id": 9,
+      "parent_id": 1,
+      "weight": 0.05,
+      "type" :"stem",
+      "category": [
+        {
+          "name": "category1",
+          "value": 4600,
+          "percent": 83.64
+        },
+        {
+          "name": "category2",
+          "value": 900,
+          "percent": 16.36
+        }
+      ],
+      "children": [
+        {
+          "name": "wheel_type = A",
+          "id": 10,
+          "parent_id": 9,
+          "weight": 0.025,
+          "type" :"stem",
+          "category": [
+            {
+              "name": "category1",
+              "value": 3300,
+              "percent": 89.19
+            },
+            {
+              "name": "category2",
+              "value": 400,
+              "percent": 10.81
+            }
+          ],
+          "children": [
+            {
+              "name": "brand = P || Q || R",
+              "id": 11,
+              "parent_id": 10,
+              "weight": 0.0125,
+              "type" : "leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 3200,
+                  "percent": 100
+                },
+                {
+                  "name": "category2",
+                  "value": 0,
+                  "percent": 0
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "brand = X || Y || Z",
+              "id": 12,
+              "parent_id": 10,
+              "weight": 0.0125,
+              "type" : "leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 400,
+                  "percent": 80
+                },
+                {
+                  "name": "category2",
+                  "value": 100,
+                  "percent": 20
+                }
+              ],
+
+              "children": []
+            }
+          ]
+        },
+        {
+          "name": "wheel_type = B",
+          "id": 13,
+          "parent_id": 9,
+          "weight": 0.025,
+          "type" : "stem",
+          "category": [
+            {
+              "name": "category1",
+              "value": 1300,
+              "percent": 72.22
+            },
+            {
+              "name": "category2",
+              "value": 500,
+              "percent": 27.78
+            }
+          ],
+          "children": [
+            {
+              "name": "selling_price <= 450000",
+              "id": 14,
+              "parent_id": 13,
+              "weight": 0.0125,
+              "type" : "leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 1300,
+                  "percent": 100
+                },
+                {
+                  "name": "category2",
+                  "value": 0,
+                  "percent": 0
+                }
+              ],
+              "children": []
+            },
+            {
+              "name": "selling_price > 450000",
+              "id": 15,
+              "parent_id": 13,
+              "weight": 0.0125,
+              "type" : "leaf",
+              "category": [
+                {
+                  "name": "category1",
+                  "value": 0,
+                  "percent": 0
+                },
+                {
+                  "name": "category2",
+                  "value": 500,
+                  "percent": 100
+                }
+              ],
+              "children": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

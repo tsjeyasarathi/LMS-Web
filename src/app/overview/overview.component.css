@@ -1,6 +1,6 @@
 .hero {
   width: 100%;
-  background: #f6f6f6;
+  background-image: linear-gradient(180deg, rgba(255,255,255,0) 60%, #fff),linear-gradient(70deg, #dbedff 32%, #ebfff0);
   height: 45vh;
   display: -webkit-box;
   display: -webkit-flex;
@@ -25,7 +25,7 @@
 .hero .hero-bg {
   height: 45vh;
   left: 50% !important;
-  margin-left: -1200px;
+  margin-left: -1212px;
   top: -300px !important;
   width: 2400px;
   position: absolute;
@@ -39,7 +39,7 @@
     width: 2400px;
     position: absolute;
     z-index: 1;
-    -webkit-transform: scale(0.65) !important;
+                                                                                                                                                    -webkit-transform: scale(0.65) !important;
     -ms-transform: scale(0.65) !important;
     transform: scale(0.65) !important; } }
 .hero .\--welcome {
@@ -61,10 +61,10 @@
   -webkit-flex-wrap: wrap;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  color: #626262;
+  color: #444;
   margin-top: 6vh;
   max-width: 580px;
-  margin-left: 45%;
+  margin-left: 55%;
   text-align: center; }
 @media (max-width: 584px) {
 .hero .\--welcome {
@@ -74,7 +74,6 @@
   font-size: 5rem;
   margin: 0;
   font-weight: 100;
-  color: #447bdc;
   padding-top: 10px;
   padding-bottom: 20px; }
 @media (max-width: 584px) {
@@ -87,7 +86,6 @@
  .hero .\--welcome p {
     padding: 0 40px; } }
 .hero .\--welcome span {
-  color: #c8c8c8;
   text-transform: uppercase;
   letter-spacing: 2px; }
 
@@ -95,9 +93,9 @@
 .\--documentation-categories {
   position: relative;
   z-index: 2;
-  background-color: #e7e7e7;
   padding: 20px;
   width: 100%;
+  background: #f6f6f6;
 }
 .\--documentation-categories .category-wrap {
   display: -webkit-box;
@@ -136,7 +134,7 @@
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
-  background: #fefefe;
+    background: #fefefe;
   -webkit-box-align: baseline;
   -webkit-align-items: baseline;
   -ms-flex-align: baseline;
@@ -154,7 +152,6 @@
   margin: 10px;
   -webkit-transition: 0.2s all ease-in-out;
   transition: 0.2s all ease-in-out;
-  border: 1px solid #ccc;
  }
 .\--documentation-categories ul li a::before {
   display: none !important; }

@@ -25,7 +25,9 @@
         "assets/css/yeti-bootswatch.min.css",
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+        "assets/vendor/jsPlumb/jsPlumb-2.2.1.js"
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

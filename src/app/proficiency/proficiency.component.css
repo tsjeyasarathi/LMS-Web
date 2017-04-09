@@ -1,5 +1,5 @@
 .content {
-  background: #fefefe;
+  background: #fff;
 }
 
 .tab-section {
@@ -26,6 +26,7 @@
   background-color: #fff;
   border-top: solid 1px #eee;
   border-bottom: solid 1px #eee;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
   padding: 10px;
   font-size: 12px;
 }

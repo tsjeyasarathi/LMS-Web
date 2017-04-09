@@ -12,6 +12,11 @@ import { HomeComponent } from './home/home.component';
 import { ProficiencyComponent } from './proficiency/proficiency.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MaterialComponent } from './material/material.component';
+import { WorkflowComponent } from './workflow/workflow.component';
+import { OperatorsComponent } from './workflow/operators/operators.component';
+import { FlowchartComponent } from './shared/components/flowchart/flowchart.component';
+import { PositionDirective } from './workflow/position.directive';
+import { DndModule } from 'ng2-dnd';
 
 @NgModule({
   declarations: [
@@ -20,13 +25,18 @@ import { MaterialComponent } from './material/material.component';
     HomeComponent,
     ProficiencyComponent,
     OverviewComponent,
-    MaterialComponent
+    MaterialComponent,
+    WorkflowComponent,
+    FlowchartComponent,
+    PositionDirective,
+    OperatorsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
     RouterModule,
+    DndModule.forRoot(),
     routing
   ],
   providers: [],

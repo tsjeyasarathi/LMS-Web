@@ -1,107 +1,3 @@
-.primary-color {
-  color: #33b5e5
-}
-
-.primary-green {
-  color: green
-}
-
-.primary-red {
-  color: #E24E2E
-}
-
-.primary-orange {
-  color: #F18B08
-}
-
-.ib {
-  display: inline-block
-}
-
-.border-top {
-  border-top: 3px solid #33b5e5
-}
-
-.border-top-primary {
-  border-top: 1px solid #33b5e5 !important
-}
-
-.border-top-green {
-  border-top: 1px solid green !important
-}
-
-.border-top-red {
-  border-top: 1px solid #E24E2E !important
-}
-
-.border-top-orange {
-  border-top: 1px solid #F18B08 !important
-}
-
-.border-left-primary {
-  border-left: 3px solid #33b5e5
-}
-
-.border-left-green {
-  border-left: 3px solid green
-}
-
-.border-left-red {
-  border-left: 3px solid #E24E2E
-}
-
-.border-left-orange {
-  border-left: 3px solid #F18B08
-}
-
-.fa-2 {
-  font-size: 2em
-}
-
-.text-primary {
-  color: #33b5e5
-}
-
-.pd-top {
-  padding-top: 5px !important
-}
-
-.scrollbar {
-  overflow-y: scroll
-}
-
-.custom-scroll::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5
-}
-
-.custom-scroll::-webkit-scrollbar {
-  width: 6px;
-  background-color: #F5F5F5
-}
-
-.custom-scroll::-webkit-scrollbar-thumb {
-  background-color: #33b5e5
-}
-
-.scrollbar-x {
-  overflow-x: scroll
-}
-
-.custom-scroll-x::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.3);
-  background-color: #F5F5F5
-}
-
-.custom-scroll-x::-webkit-scrollbar {
-  height: 5px;
-  background-color: #F5F5F5
-}
-
-.custom-scroll-x::-webkit-scrollbar-thumb {
-  background-color: #2196f3
-}
-
 /* Top menu navigation */
 .nav.navbar-nav a {
   color: #444444;
@@ -202,9 +98,9 @@
   border: none;
 }
 footer {
-  margin-top: 5px;
   padding-bottom: 5px;
-  padding-top: 5px;
+  padding-top: 10px;
+  background: #f6f6f6;
 }
 footer .copyright {
   text-align: center;
@@ -228,10 +124,11 @@ a:active, a:focus, a:hover {
   background: transparent;
   border: none;
   height: 26px;
-  top: 14px;
-  width: 20px;
+  top: 12px;
+  width: 15px;
   z-index: 999;
-  position: fixed
+  position: absolute;
+  color: #fff;
 }
 
 .hamburger:hover, .hamburger:focus, .hamburger:active {
@@ -269,19 +166,19 @@ a:active, a:focus, a:hover {
 
 .hamburger.is-closed .hamb-top {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #fff;
   top: 5px
 }
 
 .hamburger.is-closed .hamb-middle {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #fff;
   margin-top: -2px;
   top: 50%
 }
 
 .hamburger.is-closed .hamb-bottom {
   -webkit-transition: all 0.35s ease-in-out;
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: #fff;
   bottom: 5px
 }
 
@@ -290,7 +187,7 @@ a:active, a:focus, a:hover {
   left: 0;
   position: absolute;
   width: 100%;
-  background-color: #333
+  background-color: #fefefe;
 }
 
 .hamburger.is-open .hamb-top {
@@ -524,8 +421,24 @@ a:active, a:focus, a:hover {
   padding-left: 65px;
 }
 
+.navbar-brand .logo {
+  background: #fefefe;
+  color: #444;
+  width: 30px;
+  height: 30px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin: -7px 5px 0 5px;
+  padding: 7px;
+}
+
+.header-fixed {
+
+}
+
 .header-module {
   padding-bottom: 2px;
+  background: #444;
 }
 
 .header-module .sign-out {
@@ -533,23 +446,43 @@ a:active, a:focus, a:hover {
   position: absolute;
   top: -0;
   right: -0;
-  background: #33b5e5;
-  width: 50px;
-  height: 100%;
-  color: #ffffff;
+  background: #fefefe;
+  color: #444;
   font-size: 10px;
-  text-align: center
-}
-
-.header-module .sign-out i {
-  margin-top: 12px
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  font-size: 14px;
+  padding: 6px;
+  border-radius: 50px;
+  margin: 8px 10px 0 0;
 }
 
 .main {
+  background: #fefefe;
   border-bottom: solid 1px #eee;
-  overflow-y: auto;
 }
 
 .header-nav > .nav {
   margin-right: 5%;
+}
+
+.header-nav > .nav.navbar-nav {
+  color: #fff;
+}
+
+.header-nav > .nav > li > a {
+  background: #fefefe;
+}
+
+.no-margin-padding {
+  margin: 0!important;
+  padding: 0!important;
+}
+
+.navbar-brand {
+  color: #fff;
+}
+.app-title {
+  font-size: 18px;
 }

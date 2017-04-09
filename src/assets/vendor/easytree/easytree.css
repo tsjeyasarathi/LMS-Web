@@ -1,0 +1,136 @@
+#tree {
+    /*height:  500px;*/
+    margin-top: 50px;
+}
+.easytree {
+    height: 85%;
+}
+
+.easytree .node {
+    cursor: pointer;
+}
+
+.easytree .link {
+    fill: none;
+    stroke: #ccc;
+
+}
+
+.easytree .active {
+    stroke: #0066ff
+}
+
+.easytree .outer {
+/*    margin-top: 20px;*/
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+.easytree div.inner {
+    min-width: 100%;
+    /*border:1px solid #eee;*/
+    /* min-height: 100%; */
+}
+
+.easytree svg.aligner-item {
+    min-width: 100%;
+    min-height: 100%;
+    padding-top: 40px;
+}
+
+.easytree .content {
+    font-size: 11px;
+    padding: 1px 15px;
+}
+
+.easytree .node-title {
+    font-size: .8em;
+    text-anchor: middle;
+    fill: #fff;
+    font-weight: 600;
+    text-transform: capitalize;
+    background-color: white;
+
+}
+.easytree .node-rule{
+    margin-bottom:7px;padding:0px 0 3px 0;text-align:center;border-bottom:1px solid #7f8c8d;
+}
+
+.easytree .canvas-label {
+    font-weight: 600;
+}
+
+.easytree .wrapper-1 {
+    margin-top: 60px;
+    overflow-x: auto;
+}
+
+.easytree .topscroll {
+    height: 20px;
+}
+
+.marginB5 {
+    margin-bottom: 7px;
+}
+
+.text-ellipsis{text-overflow:ellipsis;overflow:hidden;white-space:nowrap}/*for overflowing texts*/
+
+div.et-tooltip {
+    /*position: absolute; */
+    background-color: white;
+    border-left: 1px solid #c0c0c0;
+    text-align: left;
+    /* min-width: 250px; */
+    /* width: 250px; */
+    /* max-height: 200px; */
+    font: 12px sans-serif;
+    /* border-width: 1px; */
+    /* border-radius: 3px; */
+    pointer-events: none;
+    overflow-y: auto;
+    /* padding: 10px; */
+    /* -webkit-box-shadow: 3px 3px 3px 0px #bdc3c7; */
+    /*-moz-box-shadow: 3px 3px 3px 0px #bdc3c7;*/
+    /* box-shadow: 3px 3px 3px 0px #bdc3c7; */
+    /*z-index: 2000;*/
+    right: 0;
+}
+
+.et-tooltip .hover-popover{font-size:11px;line-height:15px;}
+.et-tooltip h3{font-size:12px;position:relative;top:0;margin:0;padding:10px 0;font-weight:bold;border-bottom:1px solid #dedede;}
+
+.hover-popover, .hover-popover ul, .hover-popover li {position: relative;}
+.hover-popover ul {list-style: none;padding-left: 20px;margin-top:10px;}
+.hover-popover li::before, .hover-popover li::after {
+    content: "";
+    position: absolute;
+    left: -12px;
+}
+.hover-popover li::before {
+    border-top: 1px solid #000;
+    top: 9px;
+    width: 8px;
+    height: 0;
+}
+.hover-popover li::after {
+    border-left: 1px solid #000;
+    height: 100%;
+    width: 0px;
+    top: 2px;
+}
+.hover-popover ul > li:last-child::after {
+    height: 8px;
+}
+
+
+.et-tooltip .path-init{margin:5px 3px;padding:3px;border:1px solid #00725d;float:left}
+.et-tooltip .path-stem{margin:5px 3px;padding:3px;color:#00725d;float:left}
+.et-tooltip .path-mid{margin:0px 3px;padding:3px;/*border:1px solid #3B78E7;*/float:left;clear:both;background-color:rgba(249,224,136,0.5);}
+.et-tooltip .path-end:before{clear:both;}
+.et-tooltip .path-end{margin:0px 3px;padding:3px;background-color:rgb(253, 237, 237);float:left;clear:both}
+
+.et-tooltip .icons-popover{position: absolute;right:0;top:5px;float:right;}
+.et-tooltip .icons-popover span.glyphicon{padding:0 5px;font-size:15px;cursor:pointer}
+.et-tooltip .icons-popover span.glyphicon.icon-close{color:#f04d4c}

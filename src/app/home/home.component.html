@@ -23,7 +23,7 @@
   </nav>
   <!-- /#sidebar-wrapper -->
 
-  <nav class="navbar border-top" *ngIf="!showTableFullScreen">
+  <nav class="navbar border-top header-fixed" *ngIf="!showTableFullScreen">
     <div class="container-fluid header-module">
       <div class="navbar-header">
         <button type="button" [ngClass]="{'is-closed': sidePanelClosed,'is-open': !sidePanelClosed}"
@@ -32,27 +32,27 @@
           <span class="hamb-middle"></span>
           <span class="hamb-bottom"></span>
         </button>
-        <a class="navbar-brand" href="#">
-          <span class="fa fa-cubes"></span>
-          <span>Learning Board</span>
-        </a>
+        <div class="navbar-brand" href="#">
+          <span class="fa fa-cubes logo"></span>
+          <span class="app-title">Learning Board</span>
+        </div>
       </div>
 
       <div class="header-nav">
         <ul class="nav navbar-nav pull-right">
           <li class="dropdown">
             <a href="javascript:void(0)" class="dropdown-toggle" id="file" role="button"
-               aria-expanded="false"><i class="fa fa-user"></i> Jeyasarathi Thenmozhi</a>
+               aria-expanded="false"><i class="fa fa-user mg-right1"></i> <span class="mg-right1">Jeyasarathi Thenmozhi</span> <i class="fa fa-sort-down"></i></a>
           </li>
         </ul>
       </div>
       <div class="ib sign-out pull-right" title="Sign out">
-        <i class="fa fa-2 fa-sign-out"></i>
+        <i class="fa fa-sign-out"></i>
       </div>
     </div>
   </nav>
 
-  <div class="container-fluid bg">
+  <div class="container-fluid no-margin-padding">
     <div class="main">
 
       <router-outlet></router-outlet>

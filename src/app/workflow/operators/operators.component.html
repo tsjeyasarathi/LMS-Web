@@ -1,0 +1,20 @@
+
+<!-- Search Operator Filter -->
+<div class="form-group search-control" [ngSwitch] = 'clearSearchResultsStatus'>
+  <input [(ngModel)]="searchOperatorFilter" class="form-control" placeholder="Search Operators"
+  type="text" (keyup)="changeSearchResultsStatus()">
+  <button class="btn btn-default btn-search" *ngSwitchCase='false'><i class="fa fa-search"></i></button>
+  <button class="btn btn-default btn-search" *ngSwitchCase='true' (click)='clearSearchResults()'><i class="fa fa-times"></i></button>
+</div>
+
+<div class="operator-group" *ngFor="let rootNode of nodes let i=index">
+  <header class="operator-header expand" (click)='toggleSlide(rootNode)'>
+    <i [ngClass]="['fa', rootNode.iconClass]" aria-hidden="true"></i>
+    {{rootNode.name}}
+  </header>
+  <div *ngIf="rootNode.children.length > 0" class="operator-set" [@state]="rootNode.state? 'active' : 'hidden'">
+    <div *ngFor="let childNode of rootNode.children" class="operator" dnd-draggable [dragData]="childNode" [dragEnabled]="true" [dropZones]="['dropZone']">
+      <span title="{{childNode.name}}"><i [ngClass]="[childNode.iconClass]"></i> {{childNode.name}}</span>
+    </div>
+  </div>
+</div>
