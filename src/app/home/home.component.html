@@ -1,74 +1,47 @@
 <div id="wrapper" [ngClass]="{'toggled': !sidePanelClosed, 'no-toggle': sidePanelClosed}">
-  <div class="overlay custom-scroll-1" *ngIf="!sidePanelClosed"></div>
-
-  <!-- Sidebar -->
-  <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
-    <ul class="nav sidebar-nav">
-      <li>
-        <a class="navbar-brand  " href="#"><span class="fa fa-cubes"></span> </a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-users"></i> Accounts</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-file-o"></i> Reports</a>
-      </li>
-      <li>
-        <a href="#"><i class="fa fa-fw fa-cog"></i> Settings</a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /#sidebar-wrapper -->
-
-  <nav class="navbar border-top header-fixed" *ngIf="!showTableFullScreen">
-    <div class="container-fluid header-module">
-      <div class="navbar-header">
-        <button type="button" [ngClass]="{'is-closed': sidePanelClosed,'is-open': !sidePanelClosed}"
-                class="hamburger animated fadeInLeft" (click)="toggleSidePanel()" data-toggle="offcanvas">
-          <span class="hamb-top"></span>
-          <span class="hamb-middle"></span>
-          <span class="hamb-bottom"></span>
-        </button>
-        <div class="navbar-brand" href="#">
-          <span class="fa fa-cubes logo"></span>
-          <span class="app-title">Learning Board</span>
-        </div>
-      </div>
-
-      <div class="header-nav">
-        <ul class="nav navbar-nav pull-right">
-          <li class="dropdown">
-            <a href="javascript:void(0)" class="dropdown-toggle" id="file" role="button"
-               aria-expanded="false"><i class="fa fa-user mg-right1"></i> <span class="mg-right1">Jeyasarathi Thenmozhi</span> <i class="fa fa-sort-down"></i></a>
-          </li>
+    <div class="overlay custom-scroll-1" *ngIf="!sidePanelClosed"></div>
+    <!-- Sidebar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="sidebar-wrapper" role="navigation">
+        <ul class="nav sidebar-nav">
+            <li> <a class="navbar-brand  " href="#overview"><span class="fa fa-cubes"></span> </a> </li>
+            <li> <a href="#overview"><i class="fa fa-fw fa-home"></i> Home</a> </li>
+            <li> <a href="#tech/:name"><i class="fa fa-fw fa-users"></i> Accounts</a> </li>
+            <li> <a href="#overview"><i class="fa fa-fw fa-file-o"></i> Reports</a> </li>
+            <li> <a href="#overview"><i class="fa fa-fw fa-cog"></i> Settings</a> </li>
         </ul>
-      </div>
-      <div class="ib sign-out pull-right" title="Sign out">
-        <i class="fa fa-sign-out"></i>
-      </div>
-    </div>
-  </nav>
-
-  <div class="container-fluid no-margin-padding">
-    <div class="main">
-
-      <router-outlet></router-outlet>
-    </div>
-    <footer *ngIf="!showTableFullScreen">
-      <section class="copyright">
-        <div class="row">
-          <div class="large-11 large-centered columns">
-            <a href="/">Terms of use and Privacy</a>
-
-            <p>&copy;<script>document.write(new Date().getFullYear());</script>
-              2016 LatentView Analytics Pvt Ltd. All trademarks belong to their respective owners.
-            </p>
-          </div>
+    </nav>
+    <!-- /#sidebar-wrapper -->
+    <nav class="navbar border-top header-fixed" *ngIf="!showTableFullScreen">
+        <div class="container-fluid header-module">
+            <div class="navbar-header">
+                <button type="button" [ngClass]="{'is-closed': sidePanelClosed,'is-open': !sidePanelClosed}" class="hamburger animated fadeInLeft" (click)="toggleSidePanel()" data-toggle="offcanvas"> <span class="hamb-top"></span> <span class="hamb-middle"></span> <span class="hamb-bottom"></span> </button>
+                <div class="navbar-brand" href="#overview">
+                     <span class="fa fa-cubes logo"></span> <a class="app-title-link"><span class="app-title">Learning Board</span></a>
+                </div>
+            </div>
+            <div class="header-nav">
+                <ul class="nav navbar-nav pull-right">
+                    <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" id="file" role="button" aria-expanded="false"><i class="fa fa-user mg-right1"></i> <span class="mg-right1">Jeyasarathi Thenmozhi</span> <i class="fa fa-sort-down"></i></a> </li>
+                </ul>
+            </div>
+            <div class="ib sign-out pull-right" title="Sign out"> <i class="fa fa-sign-out"></i> </div>
         </div>
-      </section>
-    </footer>
-  </div>
+    </nav>
+    <div class="container-fluid no-margin-padding">
+        <div class="main">
+            <router-outlet></router-outlet>
+        </div>
+        <footer *ngIf="!showTableFullScreen">
+            <section class="copyright">
+                <div class="row">
+                    <div class="large-11 large-centered columns"> <a href="/">Terms of use and Privacy</a>
+                        <p>&copy;
+                            <script>
+                                document.write(new Date().getFullYear());
+                            </script> 2016 LatentView Analytics Pvt Ltd. All trademarks belong to their respective owners. </p>
+                    </div>
+                </div>
+            </section>
+        </footer>
+    </div>
 </div>

@@ -483,6 +483,14 @@ a:active, a:focus, a:hover {
 .navbar-brand {
   color: #fff;
 }
-.app-title {
-  font-size: 18px;
+
+a:hover ,a:active{
+    text-decoration: none;
+    color:white;
+    
 }
+.app-title-link{
+    color:white;
+}
+
+

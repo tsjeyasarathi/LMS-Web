@@ -17,6 +17,7 @@ import { OperatorsComponent } from './workflow/operators/operators.component';
 import { FlowchartComponent } from './shared/components/flowchart/flowchart.component';
 import { PositionDirective } from './workflow/position.directive';
 import { DndModule } from 'ng2-dnd';
+import { AuthenticationComponent } from './authentication/authentication.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { DndModule } from 'ng2-dnd';
     WorkflowComponent,
     FlowchartComponent,
     PositionDirective,
-    OperatorsComponent
+    OperatorsComponent,
+    AuthenticationComponent
   ],
   imports: [
     BrowserModule,

@@ -210,4 +210,16 @@ path, .jsplumb-endpoint {
 }
 
 /* end .squaredThree */
+.social-links{
+    
+}
+thead.thead-inverse {
+     background-color: #008cba; 
+    color: white;
+}
 
+.course-link:hover{
+    color: black;
+    text-decoration: none;
+    
+}
