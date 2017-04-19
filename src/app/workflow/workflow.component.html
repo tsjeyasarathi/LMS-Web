@@ -68,87 +68,138 @@
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Denormalization</p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Primary Key And Foreign Key</p>
                                             </div>
-                                           
                                         </div>
                                         <div class="row"></div>
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
-                                        
                                         <div class="pa-content">
                                             <br>
-                                            <div class ="col-md-12">
-                                               <p>Read through pages 4-10 in this<a href="#"> material </a></p>
+                                            <div class="col-md-12">
+                                                <p>Read through pages 4-10 in this<a href="#"> material </a></p>
                                             </div>
-                                      
                                         </div>
-                                        
                                         <div class="row"></div>
                                         <br>
                                         <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
-                                                                                <div class="pa-content">
+                                        <div class="pa-content">
                                             <br>
-                                            <div class ="col-md-12">
-                                               <p>Latentview internal content</p>
+                                            <div class="col-md-12">
+                                                <p>Latentview internal content</p>
                                             </div>
-                                      
                                         </div>
-                                        
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style ="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Understand syntaxing a query</h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
-                                        <div class="panel-body fs12">
-                                            <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
-                        Sections</a> for the listed topics </p>
-                                        </div>
-                                        <div class="panel panel-primary fs12">
-                                            <div class="panel-heading">
-                                                <h3 class="panel-title"><i class="fa fa-bookmark"></i><span class="mg-left1">Key Topics</span></h3> </div>
-                                            <div class="panel-body">
-                                                <p>Select Statement</p>
-                                                <p>Where</p>
-                                                <p>Like</p>
-                                                <p>Creating Tables</p>
-                                                <p>Inserting Into A Table</p>
-                                                <p>Update Statement</p>
-                                                <p>Delete/Truncate</p>
-                                                <p>Unions, Intersections, Exceptions</p>
+                                        <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <br>
+                                        <div class="pa-content">
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Select Statement</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Where</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Like</p>
+                                                <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Creating Tables</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Inserting Into A Table</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Update Statement</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Delete/Truncate</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Unions, Intersections, Exceptions</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                                        <div class="row"></div>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
+                        Sections</a> for the listed topics</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Latentview internal content</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Practice Exercises</h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
-                                        <div class="panel-body fs12">
-                                            <p>Complete stage 0 to 5 on <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step</p>
-                                            <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Complete stage 0 to 5 on <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step</p>
+                                            </div>
                                         </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>SQLZOO</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Know more about RDBMS</h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
-                                        <div class="panel-body fs12">
-                                            <p>Complete <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works. This course is part of a 5-week specialization.</p>
-                                            <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Complete <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works. This course is part of a 5-week specialization.</p>
+                                            </div>
                                         </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>SQLZOO</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
+                            
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Practice your RDBMS concepts</h4> </div>
-                                    <div class="col-lg-12 content-description mg-top2">
-                                        <div class="panel-body fs12">
-                                            <p>Practice <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works.</p>
-                                            <button class="btn btn-sm btn-success fs11" (click)="showStep({}, step+1)">Go to next step</button>
+                                             <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Practice <a href="https://www.coursera.org/learn/database-management">Database management essentials</a> to understand how RDMS works.</p>
+                                            </div>
                                         </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Coursera</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
+                                
                                 </div>
                                 <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
                                     <div class="bb10 col-lg-12">
@@ -157,6 +208,373 @@
                                         <div class="panel-body fs12">
                                             <p>You have successfully completed all the beginner level courses.</p>
                                             <button class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content" *ngIf="tech == 'SQL' && level == 2">
+                    <div class="wizard">
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">
+                      <!--<section title=".squaredThree" class="squaredThreeSection">-->
+                      <!--&lt;!&ndash; .squaredThree &ndash;&gt;-->
+                      <!--<div class="squaredThree" title="Mark as complete">-->
+                        <!--<input type="checkbox" value="None" id="squaredThree" name="check" checked />-->
+                        <!--<label for="squaredThree"></label>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
+                    <!--</section>-->
+                      Basic Operations & Aggregating Data
+</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <br>
+                                         <div class="pa-content">
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Data types</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Number Functions</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> String Functions</p>
+                                                <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Date Functions </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Using Logical Operators</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Case When Statements</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> SQL Aggregate Functions</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> The Having Clause </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> The Order By Clause</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Statistical Functions</p>    
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Read through pages 18-41 in this<a href="#"> SQL Manual-FundamentalsTraining </a></p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Latentview internal content</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Joins</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <br>
+
+                                        <div class="pa-content">
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Inner Join     </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Left Join </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Right Join </p>
+                                                <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Full Join </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Cross Join</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Aliases </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Self Join</p>
+                                                    
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
+                        Sections</a> for the listed topics<br>Sections: SQL Aliases, SQL joins, SQL Inner join, SQL left join, SQL right join, SQL full join</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>W3schools</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Subqueries</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                         <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <br>
+                                        <div class="pa-content">
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Correlated Sub Queries      </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Exists Operator  </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Nested Sub Queries  </p>
+                                                <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Analytical Functions </p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Set Operators </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Hierarchical Queries  </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Regular Expressions</p>
+                                                    
+                                            </div>
+                                        </div>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Read through pages 48-70 in this<a href="#"> SQL Manual-FundamentalsTraining </a><</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Internal</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">SQL Quiz</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Complete stage 6 to 10 on <a href="http://sqlzoo.net/">SQLZOO</a> to complete this step</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>SQLZOO</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                            
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Complete course offered by Stanford</h4> </div>
+                                             <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p><a href="https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/about">Stanford Course</a>: DB5 SQL
+Self paced, free course</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Stanford University</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                
+                                </div>
+                                <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Congratulations !</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="panel-body fs12">
+                                            <p>You have successfully completed all the beginner level courses.</p>
+                                            <button class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="content" *ngIf="tech == 'SQL' && level == 3">
+                    <div class="wizard">
+                        <form role="form">
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">
+                      <!--<section title=".squaredThree" class="squaredThreeSection">-->
+                      <!--&lt;!&ndash; .squaredThree &ndash;&gt;-->
+                      <!--<div class="squaredThree" title="Mark as complete">-->
+                        <!--<input type="checkbox" value="None" id="squaredThree" name="check" checked />-->
+                        <!--<label for="squaredThree"></label>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
+                    <!--</section>-->
+                      Advanced
+</h4> </div>
+                                    
+
+
+
+
+
+
+
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <br>
+                                        <div class="pa-content">
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Stored procedures</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>User Defined Functions</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Triggers</p>
+                                                <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Macros in SQL</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Pivoting</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Utilities</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> SQL Hosting</p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Transactions</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                       
+                                        
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Learn to connect Python to a database
+</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        
+                                        <div class="row"></div>
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Refer <a href="https://www.udacity.com/course/intro-to-relational-databases--ud197">Udacity
+
+                        Intro to Relational Databases</a>  <br>Self paced, free course</p>
+                                            
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Udacity</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Learn to use analytical elements of SQL for answering business intelligence questions</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p><a href="https://www.coursera.org/learn/dwrelational">Coursera: Relational Database Support for Data Warehouses</a>
+This course is part of Specialization, $ 49 USD p.m for the entire specialization
+Also available for free </p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Coursera</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Ebook with video illustrations </h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Learn SQL the Hard Way
+Cost: $19.99 
+ Course : <a href="https://learncodethehardway.org/sql/">Ebook</a>  </p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Learn SQL the Hard Way</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                            
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">SQL puzzles and answers</h4> </div>
+                                             <div class="col-lg-12 content-description mg-top2">
+                                        <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p><a href="https://www.amazon.com/Puzzles-Answers-Kaufmann-Management-Systems/dp/0123735963">Joe Celko's SQL Puzzles and Answers</a>
+Cost: $16.67 on Kindle, $31.43 for Paperback
+.</p>
+                                            </div>
+                                        </div>
+                                        <div class="row"></div>
+                                        <br>
+                                        <div class="pa-heading"> <img src="../../assets/images/books-xxl.png" width=30 height=30/> Who offers the content? </div>
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>Amazon</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                    </div>
+                                
+                                </div>
+                                <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">Congratulations !</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+                                        <div class="panel-body fs12">
+                                            <p>You have successfully completed all the Advanced level courses.</p>
                                         </div>
                                     </div>
                                 </div>

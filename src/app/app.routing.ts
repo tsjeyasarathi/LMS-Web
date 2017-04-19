@@ -7,6 +7,7 @@ import { OverviewComponent }   from './overview/overview.component';
 import { ProficiencyComponent }   from './proficiency/proficiency.component';
 import { MaterialComponent }   from './material/material.component';
 import { WorkflowComponent } from "./workflow/workflow.component";
+import { LevelComponent } from './level/level.component';
 
 const appRoutes: Routes = <Routes>[
   {
@@ -14,9 +15,10 @@ const appRoutes: Routes = <Routes>[
     children: [
       { path: '', component: HomeComponent },
       { path: 'overview', component: OverviewComponent },
+      { path: 'level', component: LevelComponent },
       { path: 'proficiency/:name', component: ProficiencyComponent },
       { path: 'material/:name', component: MaterialComponent },
-      { path: 'tech/:name', component: WorkflowComponent },
+      { path: 'tech/:name/:level', component: WorkflowComponent },
     ],
     component: HomeComponent
   },

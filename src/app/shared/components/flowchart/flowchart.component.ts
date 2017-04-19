@@ -158,8 +158,6 @@ export class FlowchartComponent {
     if (endpoints[id] != undefined) {
       instance.deleteEndpoint(endpoints[id][0]);
       instance.remove(endpoints[id][0]);
-      instance.deleteEndpoint(endpoints[id][1]);
-      instance.remove(endpoints[id][1]);
     }
 
     for (let i in this.endpoints) {

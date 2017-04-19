@@ -12,12 +12,14 @@ import { HomeComponent } from './home/home.component';
 import { ProficiencyComponent } from './proficiency/proficiency.component';
 import { OverviewComponent } from './overview/overview.component';
 import { MaterialComponent } from './material/material.component';
+import { FlowchartComponent } from './shared/components/flowchart/flowchart.component';
 import { WorkflowComponent } from './workflow/workflow.component';
 import { OperatorsComponent } from './workflow/operators/operators.component';
-import { FlowchartComponent } from './shared/components/flowchart/flowchart.component';
 import { PositionDirective } from './workflow/position.directive';
 import { DndModule } from 'ng2-dnd';
 import { AuthenticationComponent } from './authentication/authentication.component';
+import { LevelComponent } from './level/level.component';
+import { IntermediateComponent } from './workflow/intermediate/intermediate.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { AuthenticationComponent } from './authentication/authentication.compone
     FlowchartComponent,
     PositionDirective,
     OperatorsComponent,
-    AuthenticationComponent
+    AuthenticationComponent,
+    LevelComponent,
+    IntermediateComponent
   ],
   imports: [
     BrowserModule,

@@ -110,8 +110,6 @@ export class WorkflowComponent implements OnInit {
         this.modalError = '';
         this.selectedOptions = [];
         this.section = 'courseFlow';
-        this.tech = "SQL";
-        this.level = 1;
         this.step = 1;
 
         this.columns= [{"name": "column1"},{"name": "column2"},{"name": "column3"},{"name": "column4"},{"name": "column5"},{"name": "column6"},{"name": "column7"},{"name": "column8"}];
@@ -152,464 +150,329 @@ export class WorkflowComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.forEach((params: Params) => {
-            let project_id = params['project_id'];
-            this.selectedProjectId = project_id;
+            this.level = parseInt(params['level']);
+            this.tech = params['name'];
         });
 
-      let data = {
-        "nodes":[
-          {
-            "metadata":{"xloc":"-104","yloc":"-25", step: 1},
-            "id":"task_1476278401202",
-            "operator_id":1,
-            "name":"Start",
-            "type":"",
-            "class":"fa fa-play",
-            "duration": null
-          },
-          {
-            "metadata":{"xloc":"-22","yloc":"36"},
-            "id":"task_1476278531966",
-            "operator_id":1,
-            "name":"Introduction to SQL",
-            "type":"",
-            "class":"fa fa-book",
-            "duration": "1 hour"
-          },
-          {
-            "metadata":{"xloc":"81","yloc":"99"},
-            "id":"task_1476278531967",
-            "operator_id":1,
-            "name":"Understand syntaxing a query",
-            "type":"",
-            "class":"fa fa-video-camera",
-            "duration": "4 hours"
-          },
-          {
-            "metadata":{"xloc":"204","yloc":"158"},
-            "id":"task_1476278531968",
-            "operator_id":1,
-            "name":"Practice your queries",
-            "type":"",
-            "class":"fa fa-newspaper-o",
-            "duration": "3 hours"
-          },
-          {
-            "metadata":{"xloc":"305","yloc":"215"},
-            "id":"task_1476278531969",
-            "operator_id":1,
-            "name":"Know more about RDBMS",
-            "type":"",
-            "class":"fa fa-video-camera",
-            "duration": "40 hours"
-          },
-          {
-            "metadata":{"xloc":"427","yloc":"286"},
-            "id":"task_1476278531970",
-            "operator_id":1,
-            "name":"Practice your RDBMS concepts",
-            "type":"",
-            "class":"fa fa-newspaper-o",
-            "duration": "3 hours"
-          },
-          {
-            "metadata":{"xloc":"555","yloc":"333", "color": "#52BE80"},
-            "id":"task_1476278531971",
-            "operator_id":1,
-            "name":"Congratulations!",
-            "type":"",
-            "class":"fa fa-handshake-o",
-
-          }
-        ],
-        "connections":[
-          {
-            "source":"task_1476278401202",
-            "relation":"",
-            "target":"task_1476278531966"
-          },
-          {
-            "source":"task_1476278531966",
-            "relation":"",
-            "target":"task_1476278531967"
-          },
-          {
-            "source":"task_1476278531967",
-            "relation":"",
-            "target":"task_1476278531968"
-          },
-          {
-            "source":"task_1476278531968",
-            "relation":"",
-            "target":"task_1476278531969"
-          },
-          {
-            "source":"task_1476278531969",
-            "relation":"",
-            "target":"task_1476278531970"
-          },
-          {
-            "source":"task_1476278531970",
-            "relation":"",
-            "target":"task_1476278531971"
-          }
-        ]
-      };
-
-      //let data = {"nodes":
-      //  [{"config":{},"metadata":{"xloc":"-104","yloc":"-25"},"id":"task_1476278401202","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"-22","yloc":"36"},"id":"task_1476278531966","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"81","yloc":"99"},"id":"task_1476278531967","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"204","yloc":"158"},"id":"task_1476278531968","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"305","yloc":"215"},"id":"task_1476278531969","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"427","yloc":"286"},"id":"task_1476278531970","operator_id":1},
-      //    {"config":{},"metadata":{"xloc":"555","yloc":"333"},"id":"task_1476278531971","operator_id":1}],"connections":[{"source":"task_1476278401202","target":"task_1476278531966","metadata":{}},{"source":"task_1476278531966","target":"task_1476278531967","metadata":{}},{"source":"task_1476278531967","target":"task_1476278531968","metadata":{}},{"source":"task_1476278531968","target":"task_1476278531969","metadata":{}},{"source":"task_1476278531969","target":"task_1476278531970","metadata":{}},{"source":"task_1476278531970","target":"task_1476278531971","metadata":{}}],"name":""};
-
-      //let data = {
-        //  "nodes":[
-        //    {
-        //      "metadata":{
-        //        "yloc":"30",
-        //        "xloc":"30"
-        //      },
-        //      "id":"task_1476278401202",
-        //      "operator_id":1,
-        //      "name":"Start",
-        //      "type":"",
-        //      "class":"fa fa-play",
-        //      "duration": null
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"30",
-        //        "xloc":"320"
-        //      },
-        //      "id":"task_1476278531966",
-        //      "operator_id":1,
-        //      "name":"Introduction to SQL",
-        //      "type":"",
-        //      "class":"fa fa-book",
-        //      "duration": "1 hour"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"30",
-        //        "xloc":"610"
-        //      },
-        //      "id":"task_1476278531967",
-        //      "operator_id":1,
-        //      "name":"Understanding and syntaxing a query",
-        //      "type":"",
-        //      "class":"fa fa-video-camera",
-        //      "duration": "4 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"180",
-        //        "xloc":"610"
-        //      },
-        //      "id":"task_1476278531968",
-        //      "operator_id":1,
-        //      "name":"Practice your queries",
-        //      "type":"",
-        //      "class":"fa fa-newspaper-o",
-        //      "duration": "3 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"330",
-        //        "xloc":"610"
-        //      },
-        //      "id":"task_1476278531969",
-        //      "operator_id":1,
-        //      "name":"Know more about RDBMS",
-        //      "type":"",
-        //      "class":"fa fa-video-camera",
-        //      "duration": "40 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"330",
-        //        "xloc":"320"
-        //      },
-        //      "id":"task_1476278531970",
-        //      "operator_id":1,
-        //      "name":"Practice your RDBMS concepts",
-        //      "type":"",
-        //      "class":"fa fa-newspaper-o",
-        //      "duration": "3 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"330",
-        //        "xloc":"30",
-        //        "color": "#52BE80"
-        //      },
-        //      "id":"task_1476278531971",
-        //      "operator_id":1,
-        //      "name":"Beginner courses completed",
-        //      "type":"",
-        //      "class":"fa fa-handshake-o",
-        //
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"480",
-        //        "xloc":"30",
-        //      },
-        //      "id":"task_1476278531972",
-        //      "operator_id":1,
-        //      "name":"SQL Aggregation",
-        //      "type":"",
-        //      "class":"fa fa-empire",
-        //      "duration": "3 hours"
-        //
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"630",
-        //        "xloc":"30",
-        //      },
-        //      "id":"task_1476278531973",
-        //      "operator_id":1,
-        //      "name":"Join",
-        //      "type":"",
-        //      "class":"fa fa-plus",
-        //      "duration": "4 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"630",
-        //        "xloc":"320",
-        //      },
-        //      "id":"task_1476278531974",
-        //      "operator_id":1,
-        //      "name":"Sub queries",
-        //      "type":"",
-        //      "class":"fa fa-question",
-        //      "duration": "3 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"630",
-        //        "xloc":"610",
-        //      },
-        //      "id":"task_1476278531975",
-        //      "operator_id":1,
-        //      "name":"Practice your queries",
-        //      "type":"",
-        //      "class":"fa fa-newspaper-o",
-        //      "duration": "4 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"780",
-        //        "xloc":"610",
-        //      },
-        //      "id":"task_1476278531976",
-        //      "operator_id":1,
-        //      "name":"SQL quiz",
-        //      "type":"",
-        //      "class":"fa fa-puzzle-piece",
-        //      "duration": "1 hour"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"930",
-        //        "xloc":"610",
-        //      },
-        //      "id":"task_1476278531977",
-        //      "operator_id":1,
-        //      "name":"Courses offered by Standford",
-        //      "type":"",
-        //      "class":"fa fa-university",
-        //      "duration": "18 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"930",
-        //        "xloc":"320",
-        //        "color":  "#229954"
-        //      },
-        //      "id":"task_1476278531978",
-        //      "operator_id":1,
-        //      "name":"Intermediate Acheived",
-        //      "type":"",
-        //      "class":"fa fa-handshake-o"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"930",
-        //        "xloc":"30",
-        //      },
-        //      "id":"task_1476278531979",
-        //      "operator_id":1,
-        //      "name":"Advanced",
-        //      "type":"",
-        //      "class":"fa fa-cogs"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"1080",
-        //        "xloc":"30",
-        //      },
-        //      "id":"task_1476278531980",
-        //      "operator_id":1,
-        //      "name":"Connect python to database",
-        //      "type":"",
-        //      "class":"fa fa-link",
-        //      "duration": "4 weeks"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"1230",
-        //        "xloc":"30",
-        //      },
-        //      "id":"task_1476278531981",
-        //      "operator_id":1,
-        //      "name":"Use analytical elements of SQL",
-        //      "type":"",
-        //      "class":"fa fa-snowflake-o",
-        //      "duration": "42 hours"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"1230",
-        //        "xloc":"320",
-        //      },
-        //      "id":"task_1476278531982",
-        //      "operator_id":1,
-        //      "name":"Ebook with illustrations",
-        //      "type":"",
-        //      "class":"fa fa-book"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"1230",
-        //        "xloc":"610",
-        //      },
-        //      "id":"task_1476278531983",
-        //      "operator_id":1,
-        //      "name":"SQL puzzles",
-        //      "type":"",
-        //      "class":"fa fa-puzzle-piece"
-        //    },
-        //    {
-        //      "metadata":{
-        //        "yloc":"1380",
-        //        "xloc":"610",
-        //        "color": "#145A32"
-        //      },
-        //      "id":"task_1476278531984",
-        //      "operator_id":1,
-        //      "name":"You are an Expert",
-        //      "type":"",
-        //      "class":"fa fa-graduation-cap"
-        //    },
-        //  ],
-        //  "connections":[
-        //    {
-        //      "source":"task_1476278401202",
-        //      "relation":"",
-        //      "target":"task_1476278531966"
-        //    },
-        //    {
-        //      "source":"task_1476278531966",
-        //      "relation":"",
-        //      "target":"task_1476278531967"
-        //    },
-        //    {
-        //      "source":"task_1476278531967",
-        //      "relation":"",
-        //      "target":"task_1476278531968"
-        //    },
-        //    {
-        //      "source":"task_1476278531968",
-        //      "relation":"",
-        //      "target":"task_1476278531969"
-        //    },
-        //    {
-        //      "source":"task_1476278531969",
-        //      "relation":"",
-        //      "target":"task_1476278531970"
-        //    },
-        //    {
-        //      "source":"task_1476278531970",
-        //      "relation":"",
-        //      "target":"task_1476278531971"
-        //    },
-        //    {
-        //      "source":"task_1476278531971",
-        //      "relation":"",
-        //      "target":"task_1476278531972"
-        //    },
-        //    {
-        //      "source":"task_1476278531972",
-        //      "relation":"",
-        //      "target":"task_1476278531973"
-        //    },
-        //    {
-        //      "source":"task_1476278531973",
-        //      "relation":"",
-        //      "target":"task_1476278531974"
-        //    },
-        //    {
-        //      "source":"task_1476278531974",
-        //      "relation":"",
-        //      "target":"task_1476278531975"
-        //    },
-        //    {
-        //      "source":"task_1476278531975",
-        //      "relation":"",
-        //      "target":"task_1476278531976"
-        //    },
-        //    {
-        //      "source":"task_1476278531976",
-        //      "relation":"",
-        //      "target":"task_1476278531977"
-        //    },
-        //    {
-        //      "source":"task_1476278531977",
-        //      "relation":"",
-        //      "target":"task_1476278531978"
-        //    },
-        //    {
-        //      "source":"task_1476278531978",
-        //      "relation":"",
-        //      "target":"task_1476278531979"
-        //    },
-        //    {
-        //      "source":"task_1476278531979",
-        //      "relation":"",
-        //      "target":"task_1476278531980"
-        //    },
-        //    {
-        //      "source":"task_1476278531980",
-        //      "relation":"",
-        //      "target":"task_1476278531981"
-        //    },
-        //    {
-        //      "source":"task_1476278531981",
-        //      "relation":"",
-        //      "target":"task_1476278531982"
-        //    },
-        //    {
-        //      "source":"task_1476278531982",
-        //      "relation":"",
-        //      "target":"task_1476278531983"
-        //    },
-        //    {
-        //      "source":"task_1476278531983",
-        //      "relation":"",
-        //      "target":"task_1476278531984"
-        //    }
-        //  ]
-        //};
-
+    let data=this.loadContent();
+    
+    console.log(this.level);
+    console.log(data);
         this.initWorkflow(data);
 
     }
 
+ goToNextLevel() {
+      this.router.navigate(['/tech/', "SQL", this.level+1]);
+    }
+    
+    loadContent(){        
+    
+     let data = {}
+      if (this.level == 1) {
+
+        data = {
+          "nodes":[
+            {
+              "metadata":{"xloc":"-104","yloc":"-25", step: 1},
+              "id":"task_1476278401202",
+              "operator_id":1,
+              "name":"Start",
+              "type":"",
+              "class":"fa fa-play",
+              "duration": null
+            },
+            {
+              "metadata":{"xloc":"-22","yloc":"36"},
+              "id":"task_1476278531966",
+              "operator_id":1,
+              "name":"Introduction to SQL",
+              "type":"",
+              "class":"fa fa-book",
+              "duration": "1 hour"
+            },
+            {
+              "metadata":{"xloc":"81","yloc":"99"},
+              "id":"task_1476278531967",
+              "operator_id":1,
+              "name":"Understand syntaxing a query",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": "4 hours"
+            },
+            {
+              "metadata":{"xloc":"204","yloc":"158"},
+              "id":"task_1476278531968",
+              "operator_id":1,
+              "name":"Practice your queries",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": "3 hours"
+            },
+            {
+              "metadata":{"xloc":"305","yloc":"215"},
+              "id":"task_1476278531969",
+              "operator_id":1,
+              "name":"Know more about RDBMS",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": "40 hours"
+            },
+            {
+              "metadata":{"xloc":"427","yloc":"286"},
+              "id":"task_1476278531970",
+              "operator_id":1,
+              "name":"Practice your RDBMS concepts",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": "3 hours"
+            },
+            {
+              "metadata":{"xloc":"555","yloc":"333", "color": "#52BE80"},
+              "id":"task_1476278531971",
+              "operator_id":1,
+              "name":"Congratulations!",
+              "type":"",
+              "class":"fa fa-handshake-o",
+
+            }
+          ],
+          "connections":[
+            {
+              "source":"task_1476278401202",
+              "relation":"",
+              "target":"task_1476278531966"
+            },
+            {
+              "source":"task_1476278531966",
+              "relation":"",
+              "target":"task_1476278531967"
+            },
+            {
+              "source":"task_1476278531967",
+              "relation":"",
+              "target":"task_1476278531968"
+            },
+            {
+              "source":"task_1476278531968",
+              "relation":"",
+              "target":"task_1476278531969"
+            },
+            {
+              "source":"task_1476278531969",
+              "relation":"",
+              "target":"task_1476278531970"
+            },
+            {
+              "source":"task_1476278531970",
+              "relation":"",
+              "target":"task_1476278531971"
+            }
+          ]
+        };
+      } else if (this.level == 2) {
+        data = {
+          "nodes":[
+            {
+              "metadata":{"xloc":"-104","yloc":"-25", step: 1},
+              "id":"task_1476278401202",
+              "operator_id":1,
+              "name":"Start",
+              "type":"",
+              "class":"fa fa-play",
+              "duration": null
+            },
+            {
+              "metadata":{"xloc":"-22","yloc":"36"},
+              "id":"task_1476278531966",
+              "operator_id":1,
+              "name":"Basic Operations & Aggregating Data",
+              "type":"",
+              "class":"fa fa-book",
+              "duration": "3 hours"
+            },
+            {
+              "metadata":{"xloc":"81","yloc":"99"},
+              "id":"task_1476278531967",
+              "operator_id":1,
+              "name":"Joins",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": "4 hours"
+            },
+            {
+              "metadata":{"xloc":"204","yloc":"158"},
+              "id":"task_1476278531968",
+              "operator_id":1,
+              "name":"Subqueries",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": "3 hours"
+            },
+            {
+              "metadata":{"xloc":"305","yloc":"215"},
+              "id":"task_1476278531969",
+              "operator_id":1,
+              "name":"Practice Exercises",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": "4 hours"
+            },
+            {
+              "metadata":{"xloc":"427","yloc":"286"},
+              "id":"task_1476278531970",
+              "operator_id":1,
+              "name":"SQL Quiz",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": "1 hours"
+            },
+            {
+              "metadata":{"xloc":"555","yloc":"333", "color": "#52BE80"},
+              "id":"task_1476278531971",
+              "operator_id":1,
+              "name":"Congratulations!",
+              "type":"",
+              "class":"fa fa-handshake-o",
+
+            }
+          ],
+          "connections":[
+            {
+              "source":"task_1476278401202",
+              "relation":"",
+              "target":"task_1476278531966"
+            },
+            {
+              "source":"task_1476278531966",
+              "relation":"",
+              "target":"task_1476278531967"
+            },
+            {
+              "source":"task_1476278531967",
+              "relation":"",
+              "target":"task_1476278531968"
+            },
+            {
+              "source":"task_1476278531968",
+              "relation":"",
+              "target":"task_1476278531969"
+            },
+            {
+              "source":"task_1476278531969",
+              "relation":"",
+              "target":"task_1476278531970"
+            },
+            {
+              "source":"task_1476278531970",
+              "relation":"",
+              "target":"task_1476278531971"
+            }
+          ]
+        } 
+        }else if (this.level == 3) {
+        data = {
+          "nodes":[
+            {
+              "metadata":{"xloc":"-104","yloc":"-25", step: 1},
+              "id":"task_1476278401203",
+              "operator_id":1,
+              "name":"Start",
+              "type":"",
+              "class":"fa fa-play",
+              "duration": null
+            },
+            {
+              "metadata":{"xloc":"-22","yloc":"36"},
+              "id":"task_1476278531966",
+              "operator_id":1,
+              "name":"Advanced",
+              "type":"",
+              "class":"fa fa-book",
+              "duration": "3 hours"
+            },
+            {
+              "metadata":{"xloc":"81","yloc":"99"},
+              "id":"task_1476278531967",
+              "operator_id":1,
+              "name":"Learn to connect Python to a database",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": "4 weeks"
+            },
+            {
+              "metadata":{"xloc":"204","yloc":"158"},
+              "id":"task_1476278531968",
+              "operator_id":1,
+              "name":"Learn to use analytical elements of SQL for answering business intelligence questions",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": "42 hours"
+            },
+            {
+              "metadata":{"xloc":"305","yloc":"215"},
+              "id":"task_1476278531969",
+              "operator_id":1,
+              "name":"Ebook with video illustrations",
+              "type":"",
+              "class":"fa fa-video-camera",
+              "duration": ""
+            },
+            {
+              "metadata":{"xloc":"427","yloc":"286"},
+              "id":"task_1476278531970",
+              "operator_id":1,
+              "name":"SQL puzzles and answers",
+              "type":"",
+              "class":"fa fa-newspaper-o",
+              "duration": ""
+            },
+            {
+              "metadata":{"xloc":"555","yloc":"333", "color": "#52BE80"},
+              "id":"task_1476278531971",
+              "operator_id":1,
+              "name":"Congratulations!",
+              "type":"",
+              "class":"fa fa-handshake-o",
+
+            }
+          ],
+          "connections":[
+            {
+              "source":"task_1476278401203",
+              "relation":"",
+              "target":"task_1476278531966"
+            },
+            {
+              "source":"task_1476278531966",
+              "relation":"",
+              "target":"task_1476278531967"
+            },
+            {
+              "source":"task_1476278531967",
+              "relation":"",
+              "target":"task_1476278531968"
+            },
+            {
+              "source":"task_1476278531968",
+              "relation":"",
+              "target":"task_1476278531969"
+            },
+            {
+              "source":"task_1476278531969",
+              "relation":"",
+              "target":"task_1476278531970"
+            },
+            {
+              "source":"task_1476278531970",
+              "relation":"",
+              "target":"task_1476278531971"
+            }
+          ]
+        }
+      };
+      return data
+    }
     ngAfterViewInit() {
         this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => this.connection(info));
         this.state = true;
@@ -1437,8 +1300,4 @@ export class WorkflowComponent implements OnInit {
       }
     }
 
-    goToNextLevel() {
-      this.level += 1;
-      this.step = 1;
-    }
 }
