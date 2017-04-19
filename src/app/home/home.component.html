@@ -15,9 +15,7 @@
         <div class="container-fluid header-module">
             <div class="navbar-header">
                 <button type="button" [ngClass]="{'is-closed': sidePanelClosed,'is-open': !sidePanelClosed}" class="hamburger animated fadeInLeft" (click)="toggleSidePanel()" data-toggle="offcanvas"> <span class="hamb-top"></span> <span class="hamb-middle"></span> <span class="hamb-bottom"></span> </button>
-                <div class="navbar-brand" href="#overview">
-                     <span class="fa fa-cubes logo"></span> <a class="app-title-link"><span class="app-title">Learning Board</span></a>
-                </div>
+                <div class="navbar-brand" href="#overview"> <span class="fa fa-cubes logo"></span> <a class="app-title-link"><span class="app-title">Learning Board</span></a> </div>
             </div>
             <div class="header-nav">
                 <ul class="nav navbar-nav pull-right">
@@ -34,11 +32,14 @@
         <footer *ngIf="!showTableFullScreen">
             <section class="copyright">
                 <div class="row">
-                    <div class="large-11 large-centered columns"> <a href="/">Terms of use and Privacy</a>
-                        <p>&copy;
-                            <script>
-                                document.write(new Date().getFullYear());
-                            </script> 2016 LatentView Analytics Pvt Ltd. All trademarks belong to their respective owners. </p>
+                    <div class="large-11 large-centered columns ">
+                        <div class="pull-left"> <a href="/">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Terms of use and Privacy</a> </div>
+                        <div class="pull-right">
+                            <p>&copy;
+                                <script>
+                                    document.write(new Date().getFullYear());
+                                </script> 2016 LatentView Analytics Pvt Ltd. All trademarks belong to their respective owners.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </p>
+                        </div>
                     </div>
                 </div>
             </section>
