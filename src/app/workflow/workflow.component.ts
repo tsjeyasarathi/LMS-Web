@@ -4,6 +4,10 @@ import { FlowchartComponent } from './../shared/components/flowchart/flowchart.c
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
 
+import { Http, Headers, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
+import 'rxjs/rx';
+
 @Component({
     selector: 'app-workflow',
     templateUrl: 'workflow.component.html',
@@ -100,7 +104,7 @@ export class WorkflowComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, public router: Router,
                 public flowChart: FlowchartComponent,
-                public renderer: Renderer) {
+                public renderer: Renderer ,private http: Http) {
         this.modalSize = 'default-lg';
         this.workflowRunName = '';
         this.workflowRunNameError= false;
@@ -110,7 +114,8 @@ export class WorkflowComponent implements OnInit {
         this.modalError = '';
         this.selectedOptions = [];
         this.section = 'courseFlow';
-        this.step = 1;
+        this.step = 0;
+        this.flowControlNodes= [];
 
         this.columns= [{"name": "column1"},{"name": "column2"},{"name": "column3"},{"name": "column4"},{"name": "column5"},{"name": "column6"},{"name": "column7"},{"name": "column8"}];
 
@@ -146,24 +151,29 @@ export class WorkflowComponent implements OnInit {
             ReattachConnections: true
         });
         this.initSelectedFile();
+
     }
 
     ngOnInit() {
         this.route.params.forEach((params: Params) => {
             this.level = parseInt(params['level']);
             this.tech = params['name'];
-        });
-
-    let data=this.loadContent();
-    
+            
+            let data = this.loadContent();
+            
+            this.initWorkflow(data);
+            
     console.log(this.level);
     console.log(data);
-        this.initWorkflow(data);
+        });
+
+    
 
     }
 
  goToNextLevel() {
-      this.router.navigate(['/tech/', "SQL", this.level+1]);
+      this.router.navigate(['/tech', "SQL", this.level+1]);
+      this.clearWorkflow();
     }
     
     loadContent(){        
@@ -275,7 +285,7 @@ export class WorkflowComponent implements OnInit {
           "nodes":[
             {
               "metadata":{"xloc":"-104","yloc":"-25", step: 1},
-              "id":"task_1476278401202",
+              "id":"task_1476278404202",
               "operator_id":1,
               "name":"Start",
               "type":"",
@@ -284,7 +294,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"-22","yloc":"36"},
-              "id":"task_1476278531966",
+              "id":"task_1476278551966",
               "operator_id":1,
               "name":"Basic Operations & Aggregating Data",
               "type":"",
@@ -293,7 +303,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"81","yloc":"99"},
-              "id":"task_1476278531967",
+              "id":"task_1476278571967",
               "operator_id":1,
               "name":"Joins",
               "type":"",
@@ -302,7 +312,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"204","yloc":"158"},
-              "id":"task_1476278531968",
+              "id":"task_1476278581968",
               "operator_id":1,
               "name":"Subqueries",
               "type":"",
@@ -311,7 +321,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"305","yloc":"215"},
-              "id":"task_1476278531969",
+              "id":"task_1476278561969",
               "operator_id":1,
               "name":"Practice Exercises",
               "type":"",
@@ -320,7 +330,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"427","yloc":"286"},
-              "id":"task_1476278531970",
+              "id":"task_1476288761969",
               "operator_id":1,
               "name":"SQL Quiz",
               "type":"",
@@ -329,7 +339,7 @@ export class WorkflowComponent implements OnInit {
             },
             {
               "metadata":{"xloc":"555","yloc":"333", "color": "#52BE80"},
-              "id":"task_1476278531971",
+              "id":"task_1476278581971",
               "operator_id":1,
               "name":"Congratulations!",
               "type":"",
@@ -339,34 +349,34 @@ export class WorkflowComponent implements OnInit {
           ],
           "connections":[
             {
-              "source":"task_1476278401202",
+              "source":"task_1476278404202",
               "relation":"",
-              "target":"task_1476278531966"
+              "target":"task_1476278551966"
             },
             {
-              "source":"task_1476278531966",
+              "source":"task_1476278551966",
               "relation":"",
-              "target":"task_1476278531967"
+              "target":"task_1476278571967"
             },
             {
-              "source":"task_1476278531967",
+              "source":"task_1476278571967",
               "relation":"",
-              "target":"task_1476278531968"
+              "target":"task_1476278581968"
             },
             {
-              "source":"task_1476278531968",
+              "source":"task_1476278581968",
               "relation":"",
-              "target":"task_1476278531969"
+              "target":"task_1476278561969"
             },
             {
-              "source":"task_1476278531969",
+              "source":"task_1476278561969",
               "relation":"",
-              "target":"task_1476278531970"
+              "target":"task_1476288761969"
             },
             {
-              "source":"task_1476278531970",
+              "source":"task_1476288761969",
               "relation":"",
-              "target":"task_1476278531971"
+              "target":"task_1476278581971"
             }
           ]
         } 
@@ -404,7 +414,7 @@ export class WorkflowComponent implements OnInit {
               "metadata":{"xloc":"204","yloc":"158"},
               "id":"task_1476278531968",
               "operator_id":1,
-              "name":"Learn to use analytical elements of SQL for answering business intelligence questions",
+              "name":"Learn to use analytical elements of SQL for answering BI questions",
               "type":"",
               "class":"fa fa-newspaper-o",
               "duration": "42 hours"
@@ -652,7 +662,7 @@ export class WorkflowComponent implements OnInit {
 
     savePosition() {
       let graph = this.getAllConnections();
-
+      console.log("Save position");
       console.log(graph);
     }
     validateWorkflowNodes() {
@@ -786,28 +796,6 @@ export class WorkflowComponent implements OnInit {
         return formattedArray;
     }
 
-    configureNode(node) {
-
-        this.loadNodeModalData(node);
-        this.bodyClick();
-    }
-
-    public menuOptions = [
-        {
-           html: () => '<span class="context-menu-item"><i class="fa fa-info-circle ico-primary padR15"></i><span>Configure</span></span>',
-           click: (item, $event):void => {
-               this.configureNode(item);
-           }
-        },
-        {
-            html: () => '<span class="context-menu-item"><i class="fa fa-close text-danger padR15"></i><span class="text-danger">Delete</span></span>',
-            click: (item, $event) => {
-                this.deleteNode(item.id);
-                this.bodyClick();
-            }
-        }
-    ];
-
     public defaultMenuOptions = [
         {
             html: () => '<span class="context-menu-item"><i class="fa fa-close text-danger padR15"></i><span class="text-danger">Delete</span></span>',
@@ -871,6 +859,7 @@ export class WorkflowComponent implements OnInit {
     }
 
     onSelected(node) {
+        console.log('On selected node');
         this.selectedFolder = node;
         this.initSelectedFile();
     }
@@ -882,6 +871,7 @@ export class WorkflowComponent implements OnInit {
 
     onSelectedFile(node) {
         this.selectedFile = node;
+        console.log("You selected me ");
     }
 
     checkNextNode(node) {
@@ -1143,11 +1133,13 @@ export class WorkflowComponent implements OnInit {
 
     loadNodeModalData(node) {
         this.currentNode = node;
+        console.log('loadNodeModalData');
         this.validateNodeData(node.operator_id, node, this.flowChart.getConnections());
     }
 
     updateLoadDatasetMetadata(node) {
-
+    
+        console.log('updateLoadDatasetMetadata');
         let old_file =  node['selectedFile'];
 
         node['selectedFile'] = this.selectedFile;
@@ -1173,6 +1165,7 @@ export class WorkflowComponent implements OnInit {
     }
 
     updateDecisionTreeNode(node) {
+    console.log('updateDecisionTreeNode');
         if (node['config'] == undefined || node['config']['decisionColumn'] == undefined) {
             node['config'] = { decisionColumn: {inputColumn: this.selectedInputOptions, outputColumn: this.selectedOutputOptions} };
         }
@@ -1183,6 +1176,8 @@ export class WorkflowComponent implements OnInit {
     }
 
     updateAddColumnNode(node) {
+    console.log('updateAddColumnNode');
+    
         if (node['config'] == undefined || node['config']['newcolumn'] == undefined) {
             node['config'] = { newcolumn: this.newColumns };
         }
@@ -1193,6 +1188,8 @@ export class WorkflowComponent implements OnInit {
     }
 
     updateExportCSVNode(node) {
+    
+        console.log('updateExportCSVNode');
         if (node['config'] == undefined || node['config']['dataset_name'] == undefined) {
             node['config'] = { dataset_name: this.exportCSVForm.value.datasetName };
         } else {
@@ -1214,6 +1211,7 @@ export class WorkflowComponent implements OnInit {
     }
 
     updateOutputOption(value) {
+        console.log('updateOutputOption');
         this.selectedOutputOptions = value;
     }
 
@@ -1256,6 +1254,8 @@ export class WorkflowComponent implements OnInit {
     showPrevious() {
         this.inputCol = true;
         this.outputCol = false;
+        console.log('Show Previous :')
+        console.log(this);
     }
 
     validateOuptputColumn(dialogRef,  node){
@@ -1269,6 +1269,7 @@ export class WorkflowComponent implements OnInit {
     }
 
     updateNode(dialogRef,  node) {
+        console.log('updateNode');
         if (node != undefined) {
             switch (node['operator_id']) {
                 case this.operatorConfig['loadDataset']:
@@ -1291,13 +1292,35 @@ export class WorkflowComponent implements OnInit {
 
     }
 
-    showStep(metadata, i) {
+    showStep(metadata, i,flag=0) {
+        let data=this.loadContent();
+        
+        if (flag == 1){
+            this.http.post('http://localhost:8080/user/courseUpd',{ 'user_id':"1772" , 'course_id': this.tech,'step':i-1 ,'level':this.level,'status':'Completed'})
+            .map((res) => {
+                console.log((res));
+            })
+             .subscribe(
+                data => {
+                    console.log("No error")
+                    //console.log("brandList:"+JSON.parse(res["_body"]));                    
+                },
+                error => {
+                    console.log(error)
+                }); 
+        }
+
+        
+        console.log('meta Data');
+        console.log(metadata.xloc)
+        //metadata.color='orange'
       console.log(metadata                                                                                                    );
       if(metadata.step != undefined){
         this.step = metadata.step;
       }else{
         this.step = i;
       }
+      
     }
 
 }

@@ -291,7 +291,7 @@
 }
 
 .\--documentation-categories ul li p {
-    text-align: center;
+    text-align: left;
     margin: 0;
     padding: 0;
     max-width: 80%;
@@ -307,4 +307,13 @@
     margin: 25px 0 10px;
     letter-spacing: 1px;
     color: #626262;
+}
+
+.bullentin{
+    list-style-type: circle;
+}
+
+.bullentin:hover{
+    list-style-type: circle;
+    background-color: transparent;
 }

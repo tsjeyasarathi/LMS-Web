@@ -12,7 +12,18 @@
         <div class="col-lg-12">
             <h4 class="page-title">SQL</h4>
             <!--<a href="javascript:void(0)" (click)="savePosition()">SavePosition</a>-->
-            <div class="current-state fs12"> You are a <span class="level">Beginner</span> since <span class="time">January 21, 2017</span> </div>
+            <div class="content" *ngIf="tech == 'SQL' && level == 1">
+                <div class="current-state fs12"> You are a <span class="level">Beginner</span> since <span class="time">January 21,
+                2017</span> </div>
+            </div>
+            <div class="content" *ngIf="tech == 'SQL' && level == 2">
+                <div class="current-state fs12"> You are a <span class="level">Intermediate</span> since <span class="time">March 21,
+                2017</span> </div>
+            </div>
+            <div class="content" *ngIf="tech == 'SQL' && level == 3">
+                <div class="current-state fs12"> You are a <span class="level">Expert</span> since <span class="time">April 21,
+                2017</span> </div>
+            </div>
         </div>
         <hr/> </div>
     <div class="tab-1">
@@ -31,7 +42,7 @@
         <div class="col-lg-12 section-project" [hidden]="section != 'courseFlow'">
             <div class="pull-left section-canvas jtk-demo-canvas dynamic-demo jtk-surface jtk-surface-nopan custom-scroll custom-scroll-x" dnd-droppable (onDropSuccess)="addToGraph($event)" [dropZones]="['dropZone']">
                 <!-- button group - workflow and results -->
-                <div *ngFor="let node of flowControlNodes;let last = last;let i = index" class="node" [id]="node.id" (contextmenu)="onContextMenu($event, node)" [node_position]="node" [style.left]="node.metadata.xloc+'px'" [style.top]="node.metadata.yloc+'px'" (dblclick)="configureNode(node)" dnd-draggable [dragData]="node">
+                <div *ngFor="let node of flowControlNodes;let last = last;let i = index" class="node" [id]="node.id" (contextmenu)="onContextMenu($event, node)" [node_position]="node" [style.left]="node.metadata.xloc+'px'" [style.top]="node.metadata.yloc+'px'" dnd-draggable [dragData]="node">
                     <div class="workflow-node"> <span class="duration" *ngIf="node.duration == null || node.duration == undefined"> <span style="visibility: hidden">1</span></span> <span class="duration" *ngIf="node.duration != null && node.duration != undefined"> {{node.duration}}</span> <span (click)="showStep(node.metadata, i)" class="icon" [ngClass]="[node.iconClass]" [style.background]="node.metadata.color"></span><span class="topic"> {{node.name}}</span></div>
                     <app-is-last [isLast]="last" (onLastDone)="nodeMembersDone()"></app-is-last>
                 </div>
@@ -41,6 +52,29 @@
                     <div class="wizard">
                         <form role="form">
                             <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 0">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">
+                      <!--<section title=".squaredThree" class="squaredThreeSection">-->
+                      <!--&lt;!&ndash; .squaredThree &ndash;&gt;-->
+                      <!--<div class="squaredThree" title="Mark as complete">-->
+                        <!--<input type="checkbox" value="None" id="squaredThree" name="check" checked />-->
+                        <!--<label for="squaredThree"></label>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
+                    <!--</section>-->
+                      Start</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>You wish to start learning basics of SQL</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Lets Start</button>
+                                    </div>
+                                </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">
@@ -86,7 +120,7 @@
                                                 <p>Latentview internal content</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
@@ -127,7 +161,7 @@
                                                 <p>Latentview internal content</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
@@ -150,7 +184,7 @@
                                                 <p>SQLZOO</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
@@ -173,14 +207,14 @@
                                                 <p>SQLZOO</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                            
+
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Practice your RDBMS concepts</h4> </div>
-                                             <div class="col-lg-12 content-description mg-top2">
+                                    <div class="col-lg-12 content-description mg-top2">
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
                                         <div class="pa-content">
                                             <br>
@@ -197,9 +231,9 @@
                                                 <p>Coursera</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                                
+
                                 </div>
                                 <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
                                     <div class="bb10 col-lg-12">
@@ -207,7 +241,7 @@
                                     <div class="col-lg-12 content-description mg-top2">
                                         <div class="panel-body fs12">
                                             <p>You have successfully completed all the beginner level courses.</p>
-                                            <button class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
+                                            <button type="button" class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
                                         </div>
                                     </div>
                                 </div>
@@ -219,7 +253,7 @@
                     <div class="wizard">
                         <form role="form">
                             <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 0">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">
                       <!--<section title=".squaredThree" class="squaredThreeSection">-->
@@ -230,12 +264,28 @@
                       <!--</div>-->
                       <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
                     <!--</section>-->
+                      Start</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>You wish to learn advanced concepts</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Lets Start</button>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">
+                    
                       Basic Operations & Aggregating Data
 </h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
                                         <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
                                         <br>
-                                         <div class="pa-content">
+                                        <div class="pa-content">
                                             <div class="col-md-6">
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Data types</p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Number Functions</p>
@@ -248,7 +298,7 @@
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> SQL Aggregate Functions</p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> The Having Clause </p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> The Order By Clause</p>
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Statistical Functions</p>    
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Statistical Functions</p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -268,7 +318,7 @@
                                                 <p>Latentview internal content</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
@@ -280,7 +330,7 @@
 
                                         <div class="pa-content">
                                             <div class="col-md-6">
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Inner Join     </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Inner Join </p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Left Join </p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Right Join </p>
                                                 <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Full Join </p>
@@ -289,7 +339,7 @@
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Cross Join</p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Aliases </p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Self Join</p>
-                                                    
+
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -298,7 +348,8 @@
                                             <br>
                                             <div class="col-md-12">
                                                 <p>Refer <a href="https://www.w3schools.com/sql/">W3schools - SQL Tutorial
-                        Sections</a> for the listed topics<br>Sections: SQL Aliases, SQL joins, SQL Inner join, SQL left join, SQL right join, SQL full join</p>
+                        Sections</a> for the listed topics
+                                                    <br>Sections: SQL Aliases, SQL joins, SQL Inner join, SQL left join, SQL right join, SQL full join</p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -310,34 +361,35 @@
                                                 <p>W3schools</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Subqueries</h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
-                                         <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
+                                        <div class="pa-heading"> <img src="../../assets/images/brain-gears.png" width=30 height=30/> What is in store ? </div>
                                         <br>
                                         <div class="pa-content">
                                             <div class="col-md-6">
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Correlated Sub Queries      </p>
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Exists Operator  </p>
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Nested Sub Queries  </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Correlated Sub Queries </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Exists Operator </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Nested Sub Queries </p>
                                                 <p> <i class="fa fa-chevron-right bullet" aria-hidden="true"></i>Analytical Functions </p>
                                             </div>
                                             <div class="col-md-6">
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Set Operators </p>
-                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Hierarchical Queries  </p>
+                                                <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Hierarchical Queries </p>
                                                 <p><i class="fa fa-chevron-right bullet" aria-hidden="true"></i> Regular Expressions</p>
-                                                    
+
                                             </div>
                                         </div>
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
                                         <div class="pa-content">
                                             <br>
                                             <div class="col-md-12">
-                                                <p>Read through pages 48-70 in this<a href="#"> SQL Manual-FundamentalsTraining </a><</p>
+                                                <p>Read through pages 48-70 in this<a href="#"> SQL Manual-FundamentalsTraining </a>
+                                                    <</p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -349,7 +401,7 @@
                                                 <p>Internal</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
@@ -372,20 +424,19 @@
                                                 <p>SQLZOO</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                            
+
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">Complete course offered by Stanford</h4> </div>
-                                             <div class="col-lg-12 content-description mg-top2">
+                                    <div class="col-lg-12 content-description mg-top2">
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
                                         <div class="pa-content">
                                             <br>
                                             <div class="col-md-12">
-                                                <p><a href="https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/about">Stanford Course</a>: DB5 SQL
-Self paced, free course</p>
+                                                <p><a href="https://lagunita.stanford.edu/courses/DB/SQL/SelfPaced/about">Stanford Course</a>: DB5 SQL Self paced, free course</p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -397,9 +448,9 @@ Self paced, free course</p>
                                                 <p>Stanford University</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                                
+
                                 </div>
                                 <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
                                     <div class="bb10 col-lg-12">
@@ -407,7 +458,7 @@ Self paced, free course</p>
                                     <div class="col-lg-12 content-description mg-top2">
                                         <div class="panel-body fs12">
                                             <p>You have successfully completed all the beginner level courses.</p>
-                                            <button class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
+                                            <button type="button" class="btn btn-sm btn-success fs11" href="javascript: void(0)" (click)="goToNextLevel()">Advance to next section</button>
                                         </div>
                                     </div>
                                 </div>
@@ -419,6 +470,29 @@ Self paced, free course</p>
                     <div class="wizard">
                         <form role="form">
                             <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" *ngIf="step == 0">
+                                    <div class="bb10 col-lg-12">
+                                        <h4 class="pull-left inline">
+                      <!--<section title=".squaredThree" class="squaredThreeSection">-->
+                      <!--&lt;!&ndash; .squaredThree &ndash;&gt;-->
+                      <!--<div class="squaredThree" title="Mark as complete">-->
+                        <!--<input type="checkbox" value="None" id="squaredThree" name="check" checked />-->
+                        <!--<label for="squaredThree"></label>-->
+                      <!--</div>-->
+                      <!--&lt;!&ndash; end .squaredThree &ndash;&gt;-->
+                    <!--</section>-->
+                      Start</h4> </div>
+                                    <div class="col-lg-12 content-description mg-top2">
+
+                                        <div class="pa-content">
+                                            <br>
+                                            <div class="col-md-12">
+                                                <p>You wish to learn intense querying concepts</p>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Lets Start</button>
+                                    </div>
+                                </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 1">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">
@@ -432,7 +506,7 @@ Self paced, free course</p>
                     <!--</section>-->
                       Advanced
 </h4> </div>
-                                    
+
 
 
 
@@ -458,9 +532,9 @@ Self paced, free course</p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
-                                       
-                                        
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+
+
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 2">
@@ -468,7 +542,7 @@ Self paced, free course</p>
                                         <h4 class="pull-left inline">Learn to connect Python to a database
 </h4> </div>
                                     <div class="col-lg-12 content-description mg-top2">
-                                        
+
                                         <div class="row"></div>
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
                                         <div class="pa-content">
@@ -476,8 +550,9 @@ Self paced, free course</p>
                                             <div class="col-md-12">
                                                 <p>Refer <a href="https://www.udacity.com/course/intro-to-relational-databases--ud197">Udacity
 
-                        Intro to Relational Databases</a>  <br>Self paced, free course</p>
-                                            
+                        Intro to Relational Databases</a>
+                                                    <br>Self paced, free course</p>
+
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -489,7 +564,7 @@ Self paced, free course</p>
                                                 <p>Udacity</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 3">
@@ -500,9 +575,7 @@ Self paced, free course</p>
                                         <div class="pa-content">
                                             <br>
                                             <div class="col-md-12">
-                                                <p><a href="https://www.coursera.org/learn/dwrelational">Coursera: Relational Database Support for Data Warehouses</a>
-This course is part of Specialization, $ 49 USD p.m for the entire specialization
-Also available for free </p>
+                                                <p><a href="https://www.coursera.org/learn/dwrelational">Coursera: Relational Database Support for Data Warehouses</a> This course is part of Specialization, $ 49 USD p.m for the entire specialization Also available for free </p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -514,7 +587,7 @@ Also available for free </p>
                                                 <p>Coursera</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 4">
@@ -525,9 +598,7 @@ Also available for free </p>
                                         <div class="pa-content">
                                             <br>
                                             <div class="col-md-12">
-                                                <p>Learn SQL the Hard Way
-Cost: $19.99 
- Course : <a href="https://learncodethehardway.org/sql/">Ebook</a>  </p>
+                                                <p>Learn SQL the Hard Way Cost: $19.99 Course : <a href="https://learncodethehardway.org/sql/">Ebook</a> </p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -539,21 +610,20 @@ Cost: $19.99
                                                 <p>Learn SQL the Hard Way</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                            
+
                                 </div>
                                 <div class="tab-pane active" role="tabpanel" *ngIf="step == 5">
                                     <div class="bb10 col-lg-12">
                                         <h4 class="pull-left inline">SQL puzzles and answers</h4> </div>
-                                             <div class="col-lg-12 content-description mg-top2">
+                                    <div class="col-lg-12 content-description mg-top2">
                                         <div class="pa-heading"> <img src="../../assets/images/cogs.png" width=35 height=35/> How do i learn? </div>
                                         <div class="pa-content">
                                             <br>
                                             <div class="col-md-12">
-                                                <p><a href="https://www.amazon.com/Puzzles-Answers-Kaufmann-Management-Systems/dp/0123735963">Joe Celko's SQL Puzzles and Answers</a>
-Cost: $16.67 on Kindle, $31.43 for Paperback
-.</p>
+                                                <p><a href="https://www.amazon.com/Puzzles-Answers-Kaufmann-Management-Systems/dp/0123735963">Joe Celko's SQL Puzzles and Answers</a> Cost: $16.67 on Kindle, $31.43 for Paperback .
+                                                </p>
                                             </div>
                                         </div>
                                         <div class="row"></div>
@@ -565,9 +635,9 @@ Cost: $16.67 on Kindle, $31.43 for Paperback
                                                 <p>Amazon</p>
                                             </div>
                                         </div>
-                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
+                                        <button class="btn btn-sm btn-success fs11 pull-right" (click)="showStep({}, step+1,flag=1)"><i class="fa fa-check-circle" style="color:white;font-size:18px"></i> &nbsp;&nbsp;Make section complete</button>
                                     </div>
-                                
+
                                 </div>
                                 <div class="tab-paneactive" role="tabpanel" *ngIf="step == 6">
                                     <div class="bb10 col-lg-12">
