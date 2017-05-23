@@ -3,10 +3,10 @@ import { Node }  from './node';
 import { FlowchartComponent } from './../shared/components/flowchart/flowchart.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-
 import { Http, Headers, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/map';
-import 'rxjs/rx';
 
 @Component({
     selector: 'app-workflow',

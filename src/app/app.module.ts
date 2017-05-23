@@ -20,7 +20,7 @@ import { DndModule } from 'ng2-dnd';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LevelComponent } from './level/level.component';
 import { IntermediateComponent } from './workflow/intermediate/intermediate.component';
-
+import { WorkflowService } from './shared/services/workflow.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +45,7 @@ import { IntermediateComponent } from './workflow/intermediate/intermediate.comp
     DndModule.forRoot(),
     routing
   ],
-  providers: [],
+  providers: [WorkflowService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
