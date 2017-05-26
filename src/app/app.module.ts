@@ -17,7 +17,6 @@ import { WorkflowComponent } from './workflow/workflow.component';
 import { OperatorsComponent } from './workflow/operators/operators.component';
 import { PositionDirective } from './workflow/position.directive';
 import { DndModule } from 'ng2-dnd';
-import { AuthenticationComponent } from './authentication/authentication.component';
 import { LevelComponent } from './level/level.component';
 import { IntermediateComponent } from './workflow/intermediate/intermediate.component';
 
@@ -41,7 +40,6 @@ import { UsersService } from './shared/services/users.service';
     FlowchartComponent,
     PositionDirective,
     OperatorsComponent,
-    AuthenticationComponent,
     LevelComponent,
     IntermediateComponent
   ],
