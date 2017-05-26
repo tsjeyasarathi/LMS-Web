@@ -9,18 +9,21 @@ import { MaterialComponent }   from './material/material.component';
 import { WorkflowComponent } from "./workflow/workflow.component";
 import { LevelComponent } from './level/level.component';
 
+import { AuthGuardService } from './shared/services/auth-guard.service';
+
 const appRoutes: Routes = <Routes>[
   {
     path: '',
     children: [
       { path: '', component: HomeComponent },
       { path: 'overview', component: OverviewComponent },
-      { path: 'level', component: LevelComponent },
+      { path: 'level/:name', component: LevelComponent },
       { path: 'proficiency/:name', component: ProficiencyComponent },
       { path: 'material/:name', component: MaterialComponent },
-      { path: 'tech/:name/:level', component: WorkflowComponent },
+      { path: 'tech/:name/:level', component: WorkflowComponent }
     ],
-    component: HomeComponent
+    component: HomeComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'login',

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs/Rx';
 import { Resolve, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
-import { WorkflowService } from './../shared/services/workflow.service';
+import { WorkflowService } from '../shared/services/workflow.service';
 
 @Injectable()
 export class WorkflowResolver implements Resolve<any> {

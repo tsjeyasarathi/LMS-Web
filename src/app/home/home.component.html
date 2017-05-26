@@ -19,10 +19,10 @@
             </div>
             <div class="header-nav">
                 <ul class="nav navbar-nav pull-right">
-                    <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" id="file" role="button" aria-expanded="false"><i class="fa fa-user mg-right1"></i> <span class="mg-right1">Jeyasarathi Thenmozhi</span> <i class="fa fa-sort-down"></i></a> </li>
+                    <li class="dropdown"> <a href="javascript:void(0)" class="dropdown-toggle" id="file" role="button" aria-expanded="false"><i class="fa fa-user mg-right1"></i> <span class="mg-right1">{{userInfo.first_name}} {{userInfo.last_name}}</span> <i class="fa fa-sort-down"></i></a> </li>
                 </ul>
             </div>
-            <div class="ib sign-out pull-right" title="Sign out"> <i class="fa fa-sign-out"></i> </div>
+            <div class="ib sign-out pull-right" title="Sign out" (click)="logout()"> <i class="fa fa-sign-out"></i> </div>
         </div>
     </nav>
     <div class="container-fluid no-margin-padding">

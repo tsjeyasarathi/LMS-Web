@@ -20,7 +20,15 @@ import { DndModule } from 'ng2-dnd';
 import { AuthenticationComponent } from './authentication/authentication.component';
 import { LevelComponent } from './level/level.component';
 import { IntermediateComponent } from './workflow/intermediate/intermediate.component';
-import { WorkflowService } from './shared/services/workflow.service';
+
+import { AuthService } from './shared/services/auth.service';
+import { AuthGuardService } from './shared/services/auth-guard.service';
+import { HttpClientService } from './shared/services/http-client.service';
+import { LoginService } from './shared/services/login.service';
+import { UrlService } from './shared/services/url.service';
+import { ConfigurationService } from './shared/services/configuration.service';
+import { UsersService } from './shared/services/users.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +53,7 @@ import { WorkflowService } from './shared/services/workflow.service';
     DndModule.forRoot(),
     routing
   ],
-  providers: [WorkflowService],
+  providers: [UrlService, ConfigurationService, AuthService, AuthGuardService, LoginService, UsersService, HttpClientService],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })

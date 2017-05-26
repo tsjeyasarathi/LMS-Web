@@ -103,7 +103,7 @@ path,
 }
 
 .section-project {
-    height: 460px;
+    height: 500px;
     margin-bottom: 7px;
     border-top: solid 1px #33b5e5;
 }
@@ -134,6 +134,12 @@ path,
     border-radius: 32px;
     color: #fff;
 }
+
+.section-canvas .icon .active{
+     color: pink;
+    
+}
+
 
 .section-canvas .duration {
     width: 100%;
