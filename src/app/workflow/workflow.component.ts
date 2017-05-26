@@ -7,6 +7,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { AuthService } from  '../shared/services/auth.service';
+
 @Component({
     selector: 'app-workflow',
     templateUrl: 'workflow.component.html',
@@ -105,7 +107,7 @@ export class WorkflowComponent implements OnInit {
 
     constructor(private route: ActivatedRoute, public router: Router,
                 public flowChart: FlowchartComponent,
-                public renderer: Renderer ,private http: Http) {
+                public renderer: Renderer ,private http: Http, public authService: AuthService) {
         this.modalSize = 'default-lg';
         this.workflowRunName = '';
         this.workflowRunNameError= false;
@@ -171,7 +173,7 @@ export class WorkflowComponent implements OnInit {
 console.log('course',this.tech);
 console.log('level',typeof(this.level));
 var resp;
-var user_id='1772'
+var user_id= this.authService.getId();
     this.http.get('http://localhost:8080/user/levelupd/'+ user_id+'/'+this.tech+'/'+this.level)
 
             .subscribe((res) => {
@@ -2858,7 +2860,7 @@ var user_id='1772'
         let data=this.loadContent();
 
         if (flag == 1){
-            this.http.post('http://localhost:8080/user/courseUpd',{ 'user_id':"1772" , 'course_id': this.tech,'step':i-1 ,'level':this.level,'status':'Completed'})
+            this.http.post('http://localhost:8080/user/courseUpd',{ 'user_id':  this.authService.getId() , 'course_id': this.tech,'step':i-1 ,'level':this.level,'status':'Completed'})
             .map((res) => {
                 console.log((res));
 

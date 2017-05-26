@@ -5,27 +5,34 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
+import { AuthService } from  '../shared/services/auth.service';
+
 @Component({
   selector: 'app-level',
   templateUrl: './level.component.html',
   styleUrls: ['./level.component.css']
 })
 export class LevelComponent implements OnInit {
-level:string;
-showTimeline:  boolean;
-showTimelineSection: boolean;
+  level:string;
+  showTimeline:boolean;
+  showTimelineSection:boolean;
 
 
-  constructor(private route: ActivatedRoute, public router: Router, public renderer: Renderer ,private http: Http) {this.showTimeline =  true;
-    this.showTimelineSection = false; }
+  constructor(private route:ActivatedRoute, public router:Router, public renderer:Renderer, private http:Http,
+              public authService: AuthService) {
+    this.showTimeline = true;
+    this.showTimelineSection = false;
+  }
 
-  ngOnInit() { this.route.params.forEach((params: Params) => {
+  ngOnInit() {
+    this.route.params.forEach((params:Params) => {
 
-            this.level = params['name'];
+      this.level = params['name'];
 
-        });
+    });
 
   }
+
   toggleTimeline(state) {
     this.showTimeline = state;
   }
@@ -35,25 +42,23 @@ showTimelineSection: boolean;
   }
 
 
+  Leveldate(courseid, flag = 0, level) {
+    var resp;
 
-Leveldate(courseid,flag=0,level) {
-     var resp;
+    if (flag == 1) {
+      console.log('1st level call');
+      this.http.post('http://localhost:8080/user/levelupd', {'course_id': courseid, 'level': level, 'user_id': this.authService.getId()})
 
-        if (flag == 1){
-           console.log('1st level call'); this.http.post('http://localhost:8080/user/levelupd',{ 'course_id':courseid,'level':level,'user_id':1772 })
+        .subscribe((res) => {
 
-            .subscribe((res) => {
+          resp = res;
 
-                resp=res;
+          console.log('response is', resp);
 
-                console.log('response is',resp);
-
-            });
-
-        }
-
-
-
+        });
 
     }
+
+
+  }
 }
