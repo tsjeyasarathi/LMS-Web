@@ -74,7 +74,6 @@ export class WorkflowComponent implements OnInit {
   outputCol:boolean;
   modalError:string;
   selectedInputOptions:any;
-  public counts_hit:number;
 
   columns:any[];
   private selectedOptions:number[];
@@ -84,13 +83,11 @@ export class WorkflowComponent implements OnInit {
   public dataset:any;
   public columnSchemaCloned:any;
   public config:any;
-  public num:number
   tech:string;
   level:number;
   step:number;
   section:string;
   public created_ts;
-
 
   @ViewChild('defaultModal') defaultModal:TemplateRef<any>;
   @ViewChild('loadDatasetModal') loadDatasetModal:TemplateRef<any>;
@@ -153,23 +150,19 @@ export class WorkflowComponent implements OnInit {
       ConnectionsDetachable: true,
       ReattachConnections: true
     });
-    this.initSelectedFile();
-
-  }
-
-  ngOnInit() {
 
     this.route.params.forEach((params:Params) => {
       this.level = parseInt(params['level']);
       this.tech = params['name'];
 
-      let data = this.loadContent();
+      this.step = 1;
 
+      let data = this.loadContent();
+      this.clearWorkflow();
       this.initWorkflow(data);
 
     });
-    console.log('course', this.tech);
-    console.log('level', typeof(this.level));
+
     var resp;
     var user_id = this.authService.getId();
     this.http.get('http://localhost:4040/user/levelupd/' + user_id + '/' + this.tech + '/' + this.level)
@@ -180,9 +173,12 @@ export class WorkflowComponent implements OnInit {
 
   }
 
+  ngOnInit() {
+
+  }
+
   goToNextLevel() {
     this.router.navigate(['/tech', this.tech, this.level + 1]);
-    this.clearWorkflow();
   }
 
   loadContent() {
@@ -2004,13 +2000,13 @@ export class WorkflowComponent implements OnInit {
         ]
       }
     }
-    ;
 
-    return data
+    return data;
   }
 
   ngAfterViewInit() {
-    this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => this.connection(info));
+
+    this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => {});
     this.state = true;
   }
 
@@ -2061,24 +2057,6 @@ export class WorkflowComponent implements OnInit {
         this.addNode(new Node(data['nodes'][i]['id'], data['nodes'][i]['type'], data['nodes'][i]['name'], data['nodes'][i]['class'], true, [], data['nodes'][i]['operator_id'], data['nodes'][i]['metadata'], true, data['nodes'][i]['config'], data['nodes'][i]['duration']));
       }
     }
-
-    for (let i in this.flowControlNodes) {
-      let node = this.flowControlNodes[i];
-      let error = this.validateNodeData(node['operator_id'], node, temp_connections);
-      node['error'] = error;
-    }
-  }
-
-  validateSourceTargetNode(conn) {
-    if (conn['sourceId'] != undefined) {
-      let sourceNode = this.getNode(conn['sourceId']);
-      sourceNode['error'] = this.validateNodeData(sourceNode['operator_id'], sourceNode, this.flowChart.getConnections());
-    }
-
-    if (conn['targetId'] != undefined) {
-      let targetNode = this.getNode(conn['targetId']);
-      targetNode['error'] = this.validateNodeData(targetNode['operator_id'], targetNode, this.flowChart.getConnections());
-    }
   }
 
   beforeDrop(info) {
@@ -2095,22 +2073,16 @@ export class WorkflowComponent implements OnInit {
     return state;
   }
 
-  connection(info) {
-    this.validateSourceTargetNode(info);
-  }
-
   showDeleteConnectionModal(conn) {
     this.conn = conn;
   }
 
   detach(conn) {
     this.flowChart.detach(conn);
-    this.validateSourceTargetNode(conn);
   }
 
   deleteNode(id) {
     let conn = this.flowChart.deleteNode(id);
-    this.validateSourceTargetNode(conn);
     for (let i in this.flowControlNodes) {
       if (this.flowControlNodes[i]['id'] === id) {
         this.flowControlNodes[i]['state'] = false;
@@ -2131,35 +2103,10 @@ export class WorkflowComponent implements OnInit {
     let temp_id = 'task_' + new Date().getTime();
     newNode['metadata'] = {xloc: $event.mouseEvent.offsetX, yloc: $event.mouseEvent.offsetY};
     let node = this.addNode(new Node(temp_id, newNode.type, newNode.name, newNode.iconClass, true, [], newNode.id, newNode['metadata'], true, newNode['config'], newNode.duration));
-    node['error'] = this.initNodes(newNode.id, newNode);
   }
 
   nodeMembersDone() {
-    if (this.state) {
-      let lastNode = this.flowControlNodes.length;
-      this.flowChart.updateGraph('.dynamic-demo .node:nth-child(' + lastNode + ')');
-    }
-  }
-
-  validateWorkflowRunName() {
-    this.errorMessage = "WorkflowRun name should be 3-30 characters and contain only alphabets, numbers or special characters (-, _)";
-    var illegalChars = /^[ A-Za-z0-9_-]*$/;
-    if (!illegalChars.test(this.workflowRunName)) {
-      this.workflowRunNameError = true;
-    }
-    else if (this.workflowRunName.length < 3) {
-      this.workflowRunNameError = true
-    }
-    else {
-      this.workflowRunNameError = false;
-      this.errorMessage = '';
-    }
-    return this.workflowRunNameError;
-  }
-
-  createWorkflowRunSuccess(dialogRef) {
-    this.closeModal('createRun', dialogRef);
-    this.createAlert("Workflow task(s) submitted successfully", 1);
+    this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => {});
   }
 
   closeModal(modalName, dialogRef) {
@@ -2174,11 +2121,6 @@ export class WorkflowComponent implements OnInit {
 
   prepare():void {
     this.isAnyColumnsAdded = true;
-  }
-
-  validateAddColumn():void {
-    this.currentNode['error'] = this.validateNodeData(this.currentNode['operator_id'], this.currentNode, this.flowChart.getConnections())
-
   }
 
   createWorkflowRunFailure(error) {
@@ -2265,10 +2207,6 @@ export class WorkflowComponent implements OnInit {
     }
   }
 
-  getDatasetDataFailure(ex) {
-    this.createAlert('Unable to process your request. Please try later.', 2);
-  }
-
   isNullOrUndefined(param):boolean {
     if (param == null || param == '' || param == undefined) {
       return true;
@@ -2296,35 +2234,6 @@ export class WorkflowComponent implements OnInit {
     }
   }
 
-  cloneDatasetColumnSchema(datasetSchema):void {
-    let new_schema = {};
-    let schemaList = [];
-
-    for (let i = 0; i < datasetSchema.length; i++) {
-      let formula:string = '';
-      if (!this.isNullOrUndefined(datasetSchema[i]['formula'])) {
-        formula = datasetSchema[i]['formula'];
-      }
-      let obj = {
-        ignore: false,
-        name: datasetSchema[i]['column_name'],
-        type: datasetSchema[i]['data_type'],
-        format: datasetSchema[i]['format'],
-        dirty: false,
-        new_column: false,
-        is_calculated: datasetSchema[i]['is_calculated'],
-        formula: formula,
-        column_num: i + 1
-      };
-      schemaList.push(obj);
-    }
-
-    for (let i in schemaList) {
-      new_schema[i] = schemaList[i];
-    }
-    this.columnSchemaCloned = new_schema;
-  }
-
   formatArray(contentArray, contentLength):Array<any> {
     let formattedArray = [];
     for (let i in contentArray) {
@@ -2333,16 +2242,6 @@ export class WorkflowComponent implements OnInit {
     }
     return formattedArray;
   }
-
-  public defaultMenuOptions = [
-    {
-      html: () => '<span class="context-menu-item"><i class="fa fa-close text-danger padR15"></i><span class="text-danger">Delete</span></span>',
-      click: (item, $event) => {
-        this.deleteNode(item.id);
-        this.bodyClick();
-      }
-    }
-  ];
 
   // Expand & Collapse Operators
   expandAll() {
@@ -2396,21 +2295,6 @@ export class WorkflowComponent implements OnInit {
     this.createAlert("Please Select Atleast One Operator", 2);
   }
 
-  onSelected(node) {
-    console.log('On selected node');
-    this.selectedFolder = node;
-    this.initSelectedFile();
-  }
-
-  selectFolder(folder, node) {
-    this.selectedFolder = folder;
-    node['selectedFile'] = {id: '', name: '', type: ''};
-  }
-
-  onSelectedFile(node) {
-    this.selectedFile = node;
-  }
-
   checkNextNode(node) {
     let getNextNode = this.getNextNode(node['id'], this.flowChart.getConnections());
     return getNextNode['name'];
@@ -2422,19 +2306,6 @@ export class WorkflowComponent implements OnInit {
     getNextNode['config'] = {};
     getNextNode['error'] = true;
   }
-
-  resetSchema() {
-    this.schemaList = [];
-    this.addedColumnsFlag = [];
-    this.newColumns = [];
-  }
-
-  resetInputOutputColumns() {
-    this.selectedOutputOptions = '';
-    this.selectedInputOptions = [];
-    this.selectedOptions = [];
-  }
-
 
   getNode(id) {
     let node = {};
@@ -2474,375 +2345,6 @@ export class WorkflowComponent implements OnInit {
     }
     return node;
   }
-
-  initSelectedFileFolder() {
-    this.initSelectedFile();
-    this.initSelectedFolder();
-  }
-
-  initSelectedFile() {
-    this.selectedFile = {id: '', name: '', type: ''};
-  };
-
-  initSelectedFolder() {
-    let repoList = this.availableFileNodes;
-    this.selectedFolder = repoList;
-
-    if (repoList['children'] != undefined) {
-      for (let i in repoList['children']) {
-        if (repoList['children'][i]['name'] == "datasets") {
-          this.selectedFolder = repoList['children'][i];
-          break;
-        }
-      }
-    }
-
-    // this.selectedFolder = {id: '', name: '', type: ''};
-  }
-
-  initNodes(operator_id, node) {
-
-    var error = true;
-    switch (operator_id) {
-      case this.operatorConfig['helloWorld']:
-        error = false;
-        break;
-      case this.operatorConfig['loadDataset']:
-        if (node["config"] == undefined) {
-          node["config"] = {path: ''};
-        } else {
-          node['config']['path'] = "";
-        }
-        this.initSelectedFileFolder();
-        error = true;
-        break;
-      case this.operatorConfig['exportCSV']:
-
-        node['config'] = {'dataset_name': '', 'overwrite': 'false'};
-
-        error = true;
-        break;
-      case this.operatorConfig['decisionTree']:
-        node['config'] = {columns: []};
-        error = true;
-        break;
-      case this.operatorConfig['addColumn']:
-        node['config'] = {columns: []};
-        error = true;
-        break;
-    }
-
-    return error;
-  }
-
-  validateNodeData(operator_id, node, connections) {
-
-    let error = true;
-    let prevNode;
-    let nextNode;
-    switch (operator_id) {
-      case this.operatorConfig['helloWorld']:
-        error = false;
-        break;
-      case this.operatorConfig['loadDataset']:
-        if (node['selectedFile'] != undefined && node['selectedFolder'] != undefined) {
-          this.selectedFile = node['selectedFile'];
-          this.selectedFolder = node['selectedFolder'];
-          error = false;
-        } else {
-          if (node['config'] == undefined) {
-            node['config'] = {path: ''};
-            this.initSelectedFileFolder();
-            error = true;
-          } else {
-            if (node['config']['path'] == undefined || node['config']['path'] == '') {
-              error = true;
-              node['config'] = {path: ''};
-              this.initSelectedFileFolder();
-            } else {
-              if (node['config']['path'] != undefined && node['config']['path'] != '') {
-                let temp;
-                if (temp['selectedFile'] != undefined) {
-                  this.selectedFile = temp['selectedFile'];
-                  node['selectedFile'] = temp['selectedFile'];
-                }
-
-                if (temp['selectedFolder'] != undefined) {
-                  this.selectedFolder = temp['selectedFolder'];
-                }
-              }
-              error = false;
-            }
-          }
-        }
-        break;
-      case this.operatorConfig['exportCSV']:
-        if (node['exportCSVForm'] != undefined) {
-          this.exportCSVForm = node['exportCSVForm'];
-          error = false;
-        } else {
-          if (node['config'] == undefined) {
-            error = true;
-            node['config'] = {dataset_name: '', overwrite: "false"};
-
-          } else {
-            if (node['config']['dataset_name'] == undefined || node['config']['overwrite'] == undefined || node['config']['dataset_name'] == '') {
-              error = true;
-              node['config'] = {dataset_name: '', overwrite: "false"};
-
-            } else {
-              error = false;
-            }
-
-            if (node['config']['dataset_name'] != undefined && node['config']['overwrite'] != undefined) {
-
-              let overwrite = false;
-              if (node['config']['overwrite'] == "true") {
-                overwrite = true;
-              }
-            }
-          }
-        }
-
-        prevNode = this.getPrevNode(node['id'], connections);
-        if (prevNode['operator_id'] == undefined || (prevNode['operator_id'] != this.operatorConfig['loadDataset'] && prevNode['operator_id'] != this.operatorConfig['addColumn'])) {
-          error = true;
-        }
-        break;
-      case this.operatorConfig['decisionTree']:
-        if (node['config'] == undefined) {
-          error = true;
-          node['config'] = {decisionColumn: {inputColumn: '', outputColumn: ''}};
-        } else {
-          if (node['config']['decisionColumn'] == undefined || node['config']['decisionColumn'] == '') {
-            error = true;
-            node['config'] = {decisionColumn: {inputColumn: '', outputColumn: ''}};
-          } else {
-            error = false;
-          }
-          if (node['config']['decisionColumn'] != undefined) {
-            node['config']['decisionColumn'] = node['config']['decisionColumn'];
-          }
-
-        }
-        prevNode = this.getPrevNode(node['id'], connections);
-        // nextNode = this.getNextNode(node['id'], connections);
-
-        if (prevNode['operator_id'] == undefined || prevNode['operator_id'] != this.operatorConfig['loadDataset']) {
-          error = true;
-        }
-        // if (nextNode == undefined || nextNode['operator_id'] == undefined || nextNode['operator_id'] != this.operatorConfig['exportCSV']) {
-        //     error = true;
-        // }
-        // console.log(node);
-        break;
-      case this.operatorConfig['addColumn']:
-        if (node['config'] == undefined) {
-          error = true;
-          node['config'] = {newcolumn: ''};
-        } else {
-          if (node['config']['newcolumn'] == undefined || node['config']['newcolumn'] == '') {
-            error = true;
-            node['config'] = {newcolumn: ''};
-          } else {
-            error = false;
-          }
-          if (node['config']['newcolumn'] != undefined) {
-
-            if (typeof node['config']['newcolumn'] == 'string' && node['config']['newcolumn'] != '') {
-              let newColumnData = JSON.parse(node['config']['newcolumn']);
-              node['config']['newcolumn'] = newColumnData;
-            }
-          }
-
-        }
-        prevNode = this.getPrevNode(node['id'], connections);
-        // nextNode = this.getNextNode(node['id'], connections);
-
-        if (prevNode['operator_id'] == undefined || prevNode['operator_id'] != this.operatorConfig['loadDataset']) {
-          error = true;
-        }
-        // if (nextNode == undefined || nextNode['operator_id'] == undefined || nextNode['operator_id'] != this.operatorConfig['exportCSV']) {
-        //     error = true;
-        // }
-        break;
-    }
-
-    return error;
-  }
-
-  loadNodeModalData(node) {
-    this.currentNode = node;
-    console.log('loadNodeModalData');
-    this.validateNodeData(node.operator_id, node, this.flowChart.getConnections());
-  }
-
-  updateLoadDatasetMetadata(node) {
-
-    console.log('updateLoadDatasetMetadata');
-    let old_file = node['selectedFile'];
-
-    node['selectedFile'] = this.selectedFile;
-    node['selectedFolder'] = this.selectedFolder;
-    if (!this.isNullOrUndefined(old_file)) {
-      if (old_file.name != this.selectedFile.name) {
-
-        if (this.checkNextNode(node) == 'Add Column') {
-          this.resetNextNode(node);
-          this.resetSchema();
-        }
-        else if (this.checkNextNode(node) == 'Decision Tree') {
-          this.resetNextNode(node);
-          this.resetInputOutputColumns();
-        }
-      }
-    }
-
-    node.error = this.validateNodeData(node['operator_id'], node, this.flowChart.getConnections());
-
-    this.initSelectedFileFolder();
-
-  }
-
-  updateDecisionTreeNode(node) {
-    console.log('updateDecisionTreeNode');
-    if (node['config'] == undefined || node['config']['decisionColumn'] == undefined) {
-      node['config'] = {
-        decisionColumn: {
-          inputColumn: this.selectedInputOptions,
-          outputColumn: this.selectedOutputOptions
-        }
-      };
-    }
-    else {
-      node['config']['decisionColumn'] = {
-        inputColumn: this.selectedInputOptions,
-        outputColumn: this.selectedOutputOptions
-      };
-    }
-    node['error'] = this.validateNodeData(node['operator_id'], node, this.flowChart.getConnections());
-  }
-
-  updateAddColumnNode(node) {
-    console.log('updateAddColumnNode');
-
-    if (node['config'] == undefined || node['config']['newcolumn'] == undefined) {
-      node['config'] = {newcolumn: this.newColumns};
-    }
-    else {
-      node['config']['newcolumn'] = this.newColumns;
-    }
-    node['error'] = this.validateNodeData(node['operator_id'], node, this.flowChart.getConnections());
-  }
-
-  updateExportCSVNode(node) {
-
-    console.log('updateExportCSVNode');
-    if (node['config'] == undefined || node['config']['dataset_name'] == undefined) {
-      node['config'] = {dataset_name: this.exportCSVForm.value.datasetName};
-    } else {
-      node['config']['dataset_name'] = this.exportCSVForm.value.datasetName;
-    }
-
-    if (node['config']['overwrite'] == undefined) {
-      node['config']['overwrite'] = "false";
-    }
-
-    if (this.exportCSVForm.value.overwrite) {
-      node['config']['overwrite'] = "true";
-    } else {
-      node['config']['overwrite'] = "false";
-    }
-
-    node['exportCSVForm'] = this.exportCSVForm;
-    node.error = this.validateNodeData(node['operator_id'], node, this.flowChart.getConnections());
-  }
-
-  updateOutputOption(value) {
-    console.log('updateOutputOption');
-    this.selectedOutputOptions = value;
-  }
-
-  emptyElement(element) {
-    //Removes nulls a
-    if (element == null)
-      return false;
-    else
-      return true;
-  }
-
-  deepCopy(oldObj:any) {
-    var newObj = oldObj;
-    if (oldObj && typeof oldObj === "object") {
-      newObj = Object.prototype.toString.call(oldObj) === "[object Array]" ? [] : {};
-      for (var i in oldObj) {
-        newObj[i] = this.deepCopy(oldObj[i]);
-      }
-    }
-    return newObj;
-  }
-
-  updateOutputColumns(options) {
-
-  }
-
-
-  showNext() {
-
-  }
-
-  resetConfig(dialogRef) {
-    this.selectedOptions = [];
-    this.outputOptions = [];
-    this.selectedOutputOptions = '';
-    this.inputCol = true;
-    this.outputCol = false;
-    dialogRef.close(true);
-
-  }
-
-  showPrevious() {
-    this.inputCol = true;
-    this.outputCol = false;
-    console.log('Show Previous :')
-    console.log(this);
-  }
-
-  validateOuptputColumn(dialogRef, node) {
-    if (this.selectedOutputOptions != '') {
-      this.modalError = '';
-      this.updateNode(dialogRef, node);
-    }
-    else {
-      this.modalError = "Please selected output column ";
-    }
-  }
-
-  updateNode(dialogRef, node) {
-    console.log('updateNode');
-    if (node != undefined) {
-      switch (node['operator_id']) {
-        case this.operatorConfig['loadDataset']:
-          this.updateLoadDatasetMetadata(node);
-          break;
-        case this.operatorConfig['exportCSV']:
-          this.updateExportCSVNode(node);
-          break;
-        case this.operatorConfig['decisionTree']:
-          this.updateDecisionTreeNode(node);
-          break;
-        case this.operatorConfig['addColumn']:
-          this.updateAddColumnNode(node);
-          break;
-      }
-    }
-    if (node['operator_id'] != this.operatorConfig['addColumn']) {
-      dialogRef.close(true);
-    }
-
-
-  }
-
 
   countUpd_0click(metadata, i, flag = 0, link) {
 
@@ -2907,10 +2409,6 @@ export class WorkflowComponent implements OnInit {
     }
 
     metadata.color = 'orange'
-    console.log('meta Data');
-    console.log(metadata.xloc)
-    //metadata.color='pink'
-    console.log('faa', metadata);
     if (metadata.step != undefined) {
       this.step = metadata.step;
     } else {
