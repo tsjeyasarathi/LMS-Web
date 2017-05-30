@@ -167,21 +167,15 @@ export class WorkflowComponent implements OnInit {
 
       this.initWorkflow(data);
 
-      console.log('hi Aunty', this.level);
-      console.log('apprama varen', data);
     });
     console.log('course', this.tech);
     console.log('level', typeof(this.level));
     var resp;
     var user_id = this.authService.getId();
-    this.http.get('http://localhost:8080/user/levelupd/' + user_id + '/' + this.tech + '/' + this.level)
-
+    this.http.get('http://localhost:4040/user/levelupd/' + user_id + '/' + this.tech + '/' + this.level)
       .subscribe((res) => {
-
-        resp = res["_body"];
-        this.created_ts = resp;
-        console.log('response is', resp);
-
+        resp = JSON.parse(res["_body"]);
+        this.created_ts = resp['created_at'];
       });
 
   }
@@ -2415,7 +2409,6 @@ export class WorkflowComponent implements OnInit {
 
   onSelectedFile(node) {
     this.selectedFile = node;
-    console.log("You selected me ");
   }
 
   checkNextNode(node) {
@@ -2857,8 +2850,7 @@ export class WorkflowComponent implements OnInit {
 
     let data = this.loadContent();
     if (flag == 1) {
-      console.log('1st call');
-      this.http.post('http://localhost:8080/user/countUpd_0', {
+      this.http.post('http://localhost:8080/user/countUpd', {
           'resource_link': link,
           'course_id': this.tech,
           'step': i,
@@ -2892,7 +2884,7 @@ export class WorkflowComponent implements OnInit {
     let data = this.loadContent();
 
     if (flag == 1) {
-      this.http.post('http://localhost:8080/user/courseUpd', {
+      this.http.post('http://localhost:4040/user/courseUpd', {
           'user_id': this.authService.getId(),
           'course_id': this.tech,
           'step': i - 1,

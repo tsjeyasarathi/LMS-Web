@@ -47,7 +47,7 @@ export class LevelComponent implements OnInit {
 
     if (flag == 1) {
       console.log('1st level call');
-      this.http.post('http://localhost:8080/user/levelupd', {'course_id': courseid, 'level': level, 'user_id': this.authService.getId()})
+      this.http.post('http://localhost:4040/user/levelupd', {'course_id': courseid, 'level': level, 'user_id': this.authService.getId()})
 
         .subscribe((res) => {
 
