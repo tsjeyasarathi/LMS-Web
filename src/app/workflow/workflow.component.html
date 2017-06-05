@@ -123,7 +123,7 @@
       <div class="pull-left section-canvas jtk-demo-canvas dynamic-demo jtk-surface jtk-surface-nopan custom-scroll custom-scroll-x"
         dnd-droppable (onDropSuccess)="addToGraph($event)" [dropZones]="['dropZone']">
         <!-- button group - workflow and results -->
-        <div *ngFor="let node of flowControlNodes;let last = last;let i = index" class="node" [id]="node.id" [node_position]="node" [style.left]="node.metadata.xloc+'px'"
+        <div #allTheseThings *ngFor="let node of flowControlNodes;let last = last;let i = index" class="node" [id]="node.id" [node_position]="node" [style.left]="node.metadata.xloc+'px'"
              [style.top]="node.metadata.yloc+'px'" dnd-draggable [dragData]="node">
           <div class="workflow-node"><span class="duration" *ngIf="node.duration == null || node.duration == undefined"> <span
             style="visibility: hidden">1</span></span> <span class="duration"

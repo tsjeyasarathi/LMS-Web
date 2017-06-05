@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, Component, OnInit, TemplateRef, ViewChild, ElementRef, Renderer } from '@angular/core';
+import { trigger, state, style, transition, animate, Component, OnInit, TemplateRef, ViewChild, ViewChildren, ElementRef, Renderer, Input, QueryList } from '@angular/core';
 import { Node }  from './node';
 import { FlowchartComponent } from './../shared/components/flowchart/flowchart.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
@@ -57,7 +57,6 @@ export class WorkflowComponent implements OnInit {
   workflowRunName:string;
   workflowRunNameError:boolean;
   errorMessage:string;
-  userDetails:any;
   alertData = [];
   workflowRuns = [];
   selectedFolder:any;
@@ -68,20 +67,12 @@ export class WorkflowComponent implements OnInit {
   conn:any;
   operatorConfig = {};
   isAnyColumnsAdded:boolean;
-  outputOptions:any;
   selectedOutputOptions:string;
-  inputCol:boolean;
-  outputCol:boolean;
   modalError:string;
-  selectedInputOptions:any;
 
   columns:any[];
   private selectedOptions:number[];
-  schemaList = [];
-  addedColumnsFlag = [];
-  newColumns = [];
   public dataset:any;
-  public columnSchemaCloned:any;
   public config:any;
   tech:string;
   level:number;
@@ -101,6 +92,8 @@ export class WorkflowComponent implements OnInit {
   @ViewChild('inputWorkflowMetadata') inputWorkflowMetadata:TemplateRef<any>;
   @ViewChild('confirmConnectionDeleteModal') confirmConnectionDeleteModal:TemplateRef<any>;
   @ViewChild('containerElem') containerElem:ElementRef;
+
+  @ViewChildren('allTheseThings') things: QueryList<any>;
 
   constructor(private route:ActivatedRoute, public router:Router,
               public flowChart:FlowchartComponent,
@@ -154,13 +147,12 @@ export class WorkflowComponent implements OnInit {
     this.route.params.forEach((params:Params) => {
       this.level = parseInt(params['level']);
       this.tech = params['name'];
-
       this.step = 1;
 
-      let data = this.loadContent();
+      console.log(this.state);
       this.clearWorkflow();
+      let data = this.loadContent();
       this.initWorkflow(data);
-
     });
 
     var resp;
@@ -173,11 +165,19 @@ export class WorkflowComponent implements OnInit {
 
   }
 
+  nodeMembersDone() {
+    if (this.state) {
+      let lastNode = this.flowControlNodes.length;
+      this.flowChart.updateGraph('.dynamic-demo .node:nth-child(' + lastNode + ')');
+    }
+  }
+
   ngOnInit() {
 
   }
 
   goToNextLevel() {
+    this.clearWorkflow();
     this.router.navigate(['/tech', this.tech, this.level + 1]);
   }
 
@@ -185,7 +185,6 @@ export class WorkflowComponent implements OnInit {
 
     let data = {}
     if (this.level == 1 && this.tech == 'SQL') {
-
       data = {
         "nodes": [
           {
@@ -1499,7 +1498,6 @@ export class WorkflowComponent implements OnInit {
       }
     }
     else if (this.level == 1 && this.tech == 'Excel') {
-
       data = {
         "nodes": [
           {
@@ -1749,9 +1747,7 @@ export class WorkflowComponent implements OnInit {
         ]
       }
     }
-
     else if (this.level == 1 && this.tech == 'Visualization') {
-
       data = {
         "nodes": [
           {
@@ -2004,7 +2000,21 @@ export class WorkflowComponent implements OnInit {
     return data;
   }
 
+
   ngAfterViewInit() {
+
+    if (!this.state)
+      this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => {});
+
+    this.things.changes.subscribe(t => {
+      this.ngForRendered();
+    })
+  }
+
+
+  ngForRendered() {
+
+    console.log("ng after view init");
 
     this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => {});
     this.state = true;
@@ -2023,6 +2033,15 @@ export class WorkflowComponent implements OnInit {
     }
     else {
       this.createAlert("No Workflow Runs Available", 2);
+    }
+  }
+
+  @Input()
+  set ready(isReady: boolean) {
+    if (isReady && this.state) {
+
+      let lastNode = this.flowControlNodes.length;
+      this.flowChart.updateGraph('.dynamic-demo .node:nth-child(' + lastNode + ')');
     }
   }
 
@@ -2103,10 +2122,6 @@ export class WorkflowComponent implements OnInit {
     let temp_id = 'task_' + new Date().getTime();
     newNode['metadata'] = {xloc: $event.mouseEvent.offsetX, yloc: $event.mouseEvent.offsetY};
     let node = this.addNode(new Node(temp_id, newNode.type, newNode.name, newNode.iconClass, true, [], newNode.id, newNode['metadata'], true, newNode['config'], newNode.duration));
-  }
-
-  nodeMembersDone() {
-    this.flowChart.initGraph('.dynamic-demo .node', this.connections, (info) => this.showDeleteConnectionModal(info), (info) =>  this.beforeDrop(info), (info) => {});
   }
 
   closeModal(modalName, dialogRef) {
@@ -2386,7 +2401,7 @@ export class WorkflowComponent implements OnInit {
     let data = this.loadContent();
 
     if (flag == 1) {
-      this.http.post('http://localhost:4040/user/courseUpd', {
+      this.http.post('http://localhost:4040/user/stepUpd', {
           'user_id': this.authService.getId(),
           'course_id': this.tech,
           'step': i - 1,
