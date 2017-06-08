@@ -3,7 +3,7 @@ import { Node }  from './node';
 import { FlowchartComponent } from './../shared/components/flowchart/flowchart.component';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { FormBuilder, Validators } from '@angular/forms';
-
+import { DatePipe } from '@angular/common';
 import { Http, Headers, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
@@ -167,7 +167,9 @@ export class WorkflowComponent implements OnInit {
 
   nodeMembersDone() {
     if (this.state) {
+    
       let lastNode = this.flowControlNodes.length;
+      console.log("YABBBA DIBBA ADOOOOOOOOOOOOOOOOOOOOOO , lastNode")
       this.flowChart.updateGraph('.dynamic-demo .node:nth-child(' + lastNode + ')');
     }
   }
@@ -2232,7 +2234,7 @@ export class WorkflowComponent implements OnInit {
 
   generateArray(obj, columnCount):Array<any> {
     let newArray = [];
-    for (let i = 0; i < columnCount; i++) {
+    for (let i = 0; i <columnCount; i++) {
       let key = '_c' + i;
       if (obj[key] == undefined) {
         obj[key] = '';
@@ -2367,7 +2369,7 @@ export class WorkflowComponent implements OnInit {
 
     let data = this.loadContent();
     if (flag == 1) {
-      this.http.post('http://localhost:8080/user/countUpd', {
+      this.http.post('http://localhost:4040/user/countUpd', {
           'resource_link': link,
           'course_id': this.tech,
           'step': i,

@@ -73,7 +73,7 @@ path {
     height: 10em;
     z-index: 24;
     position: absolute;
-    cursor: pointer;
+    cursor: absolute;
     font-size: 12px;
 }
 
